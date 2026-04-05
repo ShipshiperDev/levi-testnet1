@@ -1,0 +1,82 @@
+﻿node.exe : An unexpected 
+error occurred:
+At C:\Program 
+Files\nodejs\npx.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo        
+      : NotSpecified: (A  
+  n unexpected error oc   
+ curred::String) [], R    
+emoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+
+Error: Cannot find module 
+'@nomicfoundation/hardhat-
+chai-matchers'
+Require stack:
+- C:\Users\Admin\Documents
+\Antigravity Builds\TEMPO 
+PROJECT\contracts\node_mod
+ules\@nomicfoundation\hard
+hat-toolbox\index.js
+    at node:internal/modul
+es/cjs/loader:1244:15
+    at m._resolveFilename 
+(file:///C:/Users/Admin/Do
+cuments/Antigravity%20Buil
+ds/TEMPO%20PROJECT/contrac
+ts/node_modules/tsx/dist/r
+egister-B7jrtLTO.mjs:1:789
+)
+    at Function._load (nod
+e:internal/modules/cjs/loa
+der:1070:27)
+    at 
+TracingChannel.traceSync (
+node:diagnostics_channel:3
+22:14)
+    at wrapModuleLoad (nod
+e:internal/modules/cjs/loa
+der:217:24)
+    at Module.require (nod
+e:internal/modules/cjs/loa
+der:1335:12)
+    at require (node:inter
+nal/modules/helpers:136:16
+)
+    at Object.<anonymous> 
+(C:\Users\Admin\Documents\
+Antigravity Builds\TEMPO P
+ROJECT\contracts\node_modu
+les\@nomicfoundation\hardh
+at-toolbox\src\index.ts:1:
+1)
+    at Module._compile (no
+de:internal/modules/cjs/lo
+ader:1562:14)
+    at Object..js (node:in
+ternal/modules/cjs/loader:
+1699:10) {
+  code: 
+'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Admin\\Doc
+uments\\Antigravity 
+Builds\\TEMPO PROJECT\\con
+tracts\\node_modules\\@nom
+icfoundation\\hardhat-tool
+box\\index.js'
+  ]
+}
+
+If you think this is a 
+bug in Hardhat, please 
+report it here: https://ha
+rdhat.org/report-bug
