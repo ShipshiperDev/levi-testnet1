@@ -146,8 +146,8 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
         console.log(`BuyersFeed: Scanning from block ${from} to ${latest}`);
         const logs = await (publicClient as ReturnType<typeof usePublicClient>)!.getLogs({
           address: ACTIVE_CONFIG.presaleAddress,
-          abi: presaleAbi,
-          eventName: 'TokensPurchased',
+          // abi: presaleAbi,
+          // eventName: 'TokensPurchased',
           fromBlock: from,
           toBlock: latest
         });
