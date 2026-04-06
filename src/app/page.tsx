@@ -9,7 +9,7 @@ import {
   useWatchContractEvent, usePublicClient,
 } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-import { formatUnits, parseUnits, erc20Abi } from 'viem';
+import { formatUnits, parseUnits, erc20Abi, parseAbiItem } from 'viem';
 import {
   ACTIVE_CONFIG, ACTIVE_NETWORK, ACTIVE_TOKENS, NETWORKS, isDeployed,
 } from '@/config/contracts';
@@ -146,8 +146,7 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
         console.log(`BuyersFeed: Scanning from block ${from} to ${latest}`);
         const logs = await (publicClient as any)!.getLogs({
           address: ACTIVE_CONFIG.presaleAddress,
-          abi: presaleAbi,
-          eventName: 'TokensPurchased',
+          event: parseAbiItem('event TokensPurchased(address indexed buyer, address indexed payToken, uint256 usdAmount, uint256 leviAmount)'),
           fromBlock: from,
           toBlock: latest
         });
@@ -170,8 +169,7 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
   // Watch for new live events
   useWatchContractEvent({
     address: ACTIVE_CONFIG.presaleAddress,
-    abi: presaleAbi as any,
-    eventName: 'TokensPurchased',
+    event: parseAbiItem('event TokensPurchased(address indexed buyer, address indexed payToken, uint256 usdAmount, uint256 leviAmount)'),
     onLogs(logs: any) {
       const newer: Buyer[] = (logs as any[]).map(log => ({
         addr: (log.args?.buyer as string)?.slice(0, 6) ?? '0x????',
