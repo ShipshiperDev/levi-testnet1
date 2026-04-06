@@ -144,18 +144,18 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
         const from = latest > 10000n ? latest - 10000n : 0n;
 
         console.log(`BuyersFeed: Scanning from block ${from} to ${latest}`);
-        const logs = await (publicClient as ReturnType<typeof usePublicClient>)!.getLogs({
+        const logs = await (publicClient as any)!.getLogs({
           address: ACTIVE_CONFIG.presaleAddress,
-          // abi: presaleAbi,
-          // eventName: 'TokensPurchased',
+          abi: presaleAbi,
+          eventName: 'TokensPurchased',
           fromBlock: from,
           toBlock: latest
         });
 
         console.log("BuyersFeed: Found historical logs:", logs.length);
-        const recent = logs.slice(-5).reverse().map((log, i) => ({
-          addr: (log.args.buyer as string)?.slice(0, 6) ?? '0x????',
-          amount: Number(formatUnits((log.args.leviAmount as bigint) ?? BigInt(0), 18)),
+        const recent = logs.slice(-5).reverse().map((log: any, i: number) => ({
+          addr: (log.args?.buyer as string)?.slice(0, 6) ?? '0x????',
+          amount: Number(formatUnits((log.args?.leviAmount as bigint) ?? BigInt(0), 18)),
           time: i === 0 ? 'just now' : `${i * 3 + 2}m ago`,
         }));
         setBuyers(recent);
@@ -170,18 +170,18 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
   // Watch for new live events
   useWatchContractEvent({
     address: ACTIVE_CONFIG.presaleAddress,
-    abi: presaleAbi,
+    abi: presaleAbi as any,
     eventName: 'TokensPurchased',
-    onLogs(logs) {
-      const newer: Buyer[] = logs.map(log => ({
-        addr: (log.args.buyer as string)?.slice(0, 6) ?? '0x????',
-        amount: Number(formatUnits((log.args.leviAmount as bigint) ?? BigInt(0), 18)),
+    onLogs(logs: any) {
+      const newer: Buyer[] = (logs as any[]).map(log => ({
+        addr: (log.args?.buyer as string)?.slice(0, 6) ?? '0x????',
+        amount: Number(formatUnits((log.args?.leviAmount as bigint) ?? BigInt(0), 18)),
         time: 'just now',
       }));
       setBuyers(prev => [...newer, ...prev].slice(0, 5));
     },
     enabled: deployed,
-  });
+  } as any);
 
   return (
     <div className="glass-panel" style={{ padding: '24px' }}>
@@ -296,7 +296,7 @@ export default function Home() {
   }, [writeError, resetWrite]);
 
   const handleWatchAsset = useCallback(async () => {
-    if (!window.ethereum || !deployed) return;
+    if (!(window as any).ethereum || !deployed) return;
     try {
       await (window as any).ethereum.request({
         method: 'wallet_watchAsset',
