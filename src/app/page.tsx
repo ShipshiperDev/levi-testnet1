@@ -266,7 +266,7 @@ export default function Home() {
   const token = ACTIVE_TOKENS[selectedToken];
   const usdAmount = parseFloat(buyAmount || '0');
   // Guard against NaN — parseUnits('NaN', 6) throws and crashes the page
-  const safeUsd = isNaN(usdAmount) || usdAmount <= 0 ? 0 : Math.min(usdAmount, 10);
+  const safeUsd = isNaN(usdAmount) || usdAmount <= 0 ? 0 : Math.min(usdAmount, 200);
   const usdBigInt = mounted ? parseUnits(String(safeUsd), 6) : ZERO;
 
   const { data: allowanceRaw, refetch: refetchAllowance } = useReadContract({
