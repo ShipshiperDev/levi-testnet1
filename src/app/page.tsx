@@ -335,7 +335,7 @@ export default function Home() {
   const handleBuy = useCallback(() => {
     if (!isConnected) { connect({ connector: injected() }); return; }
     if (wrongNetwork) { switchChain({ chainId: targetChainId }); return; }
-    if (usdAmount < 1 || usdAmount > 10) { toast('Amount must be between $1 and $10', 'error'); return; }
+    if (usdAmount < 1 || usdAmount > 200) { toast('Amount must be between $1 and $200', 'error'); return; }
 
     // Clear any previous pending toast before starting new step
     if (pendingToastId.current) dismiss(pendingToastId.current);
@@ -588,7 +588,7 @@ export default function Home() {
           <div className="grid-3">
             {[
               { step: '01', title: 'Connect Your Wallet', body: 'Click "Connect Wallet" and link any EVM-compatible wallet (MetaMask, Rabby etc.) to the Tempo Testnet.', color: 'var(--accent-primary)' },
-              { step: '02', title: 'Choose Amount & Token', body: 'Enter $1–$10 or download "skill.md" from the terminal to let your AI agent buy for you autonomously via pathUSD/AlphaUSD.', color: 'var(--accent-secondary)' },
+              { step: '02', title: 'Choose Amount & Token', body: 'Enter $1–$200 or download "skill.md" from the terminal to let your AI agent buy for you autonomously via pathUSD/AlphaUSD.', color: 'var(--accent-secondary)' },
               { step: '03', title: 'Receive $LEVI', body: 'Approve, confirm the buy. $LEVI lands in your wallet instantly at a fixed rate. No slippage. No tricks.', color: 'var(--accent-accent)' },
             ].map(({ step, title, body, color }, i) => (
               <div key={step} className={`reveal reveal-delay-${i + 1} glass-panel`} style={{ padding: 36, display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -633,7 +633,7 @@ export default function Home() {
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
                 <span style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', letterSpacing: 2, textTransform: 'uppercase' }}>You Pay</span>
                 <div style={{ display: 'flex', gap: 6 }}>
-                  {['1', '10'].map(v => (
+                  {['1', '200'].map(v => (
                     <button key={v} onClick={() => setBuyAmount(v)} style={{
                       background: buyAmount === v ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.04)',
                       border: `1px solid ${buyAmount === v ? 'rgba(59,130,246,0.6)' : 'var(--glass-border)'}`,
@@ -652,7 +652,7 @@ export default function Home() {
                   min="1" max="10"
                   onChange={e => {
                     const v = parseFloat(e.target.value);
-                    setBuyAmount(e.target.value === '' ? '' : String(Math.min(v, 10)));
+                    setBuyAmount(e.target.value === '' ? '' : String(Math.min(v, 200)));
                   }}
                   placeholder="0.0"
                   style={{ fontSize: '2rem', fontWeight: 700 }}
@@ -873,7 +873,6 @@ export default function Home() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {[
                   ['X/Twitter', '#'],
-                  ['GitHub', '#'],
                 ].map(([label, href]) => (
                   <a key={label} href={href} target="_blank" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.88rem', transition: 'color 0.2s' }}
                     onMouseOver={e => (e.currentTarget.style.color = 'var(--text-primary)')}
