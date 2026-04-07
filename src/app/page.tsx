@@ -9,7 +9,7 @@ import {
   useWatchContractEvent, usePublicClient,
 } from 'wagmi';
 import { injected } from 'wagmi/connectors';
-import { formatUnits, parseUnits, erc20Abi, parseAbiItem } from 'viem';
+import { formatUnits, parseUnits, erc20Abi, parseAbiItem, decodeEventLog, maxUint256 } from 'viem';
 import {
   ACTIVE_CONFIG, ACTIVE_NETWORK, ACTIVE_TOKENS, NETWORKS, isDeployed,
 } from '@/config/contracts';
@@ -146,17 +146,30 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
         console.log(`BuyersFeed: Scanning from block ${from} to ${latest}`);
         const logs = await (publicClient as any)!.getLogs({
           address: ACTIVE_CONFIG.presaleAddress,
-          event: parseAbiItem('event TokensPurchased(address indexed buyer, address indexed payToken, uint256 usdAmount, uint256 leviAmount)'),
           fromBlock: from,
-          toBlock: latest
+          toBlock: latest,
+          topics: [
+            '0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b',
+          ],
         });
 
         console.log("BuyersFeed: Found historical logs:", logs.length);
-        const recent = logs.slice(-5).reverse().map((log: any, i: number) => ({
-          addr: (log.args?.buyer as string)?.slice(0, 6) ?? '0x????',
-          amount: Number(formatUnits((log.args?.leviAmount as bigint) ?? BigInt(0), 18)),
-          time: i === 0 ? 'just now' : `${i * 3 + 2}m ago`,
-        }));
+        const recent = logs.slice(-5).reverse().map((log: any, i: number) => {
+          try {
+            const decoded = decodeEventLog({
+              abi: presaleAbi,
+              data: log.data,
+              topics: log.topics,
+            }) as any;
+            return {
+              addr: (decoded.args?.buyer as string)?.slice(0, 6) ?? '0x????',
+              amount: Number(formatUnits((decoded.args?.leviAmount as bigint) ?? BigInt(0), 18)),
+              time: i === 0 ? 'just now' : `${i * 3 + 2}m ago`,
+            };
+          } catch {
+            return null;
+          }
+        }).filter(Boolean) as Buyer[];
         setBuyers(recent);
       } catch (err) {
         console.error("BuyersFeed Error:", err);
@@ -170,12 +183,23 @@ function BuyersFeed({ deployed }: { deployed: boolean }) {
   useWatchContractEvent({
     address: ACTIVE_CONFIG.presaleAddress,
     event: parseAbiItem('event TokensPurchased(address indexed buyer, address indexed payToken, uint256 usdAmount, uint256 leviAmount)'),
-    onLogs(logs: any) {
-      const newer: Buyer[] = (logs as any[]).map(log => ({
-        addr: (log.args?.buyer as string)?.slice(0, 6) ?? '0x????',
-        amount: Number(formatUnits((log.args?.leviAmount as bigint) ?? BigInt(0), 18)),
-        time: 'just now',
-      }));
+    onLogs(rawLogs: any) {
+      const newer: Buyer[] = (rawLogs as any[]).map(log => {
+        try {
+          const decoded = decodeEventLog({
+            abi: presaleAbi,
+            data: log.data,
+            topics: log.topics,
+          }) as any;
+          return {
+            addr: (decoded.args?.buyer as string)?.slice(0, 6) ?? '0x????',
+            amount: Number(formatUnits((decoded.args?.leviAmount as bigint) ?? BigInt(0), 18)),
+            time: 'just now',
+          };
+        } catch {
+          return null;
+        }
+      }).filter(Boolean) as Buyer[];
       setBuyers(prev => [...newer, ...prev].slice(0, 5));
     },
     enabled: deployed,
@@ -342,12 +366,12 @@ export default function Home() {
 
     if (needsApprove) {
       setBuyStep('approving');
-      pendingToastId.current = toast('Step 1: Approve token spending', 'pending');
+      pendingToastId.current = toast('Step 1: Approve token spending (one-time)', 'pending');
       writeContract({
         address: token.address,
         abi: erc20Abi,
         functionName: 'approve',
-        args: [ACTIVE_CONFIG.presaleAddress, usdBigInt],
+        args: [ACTIVE_CONFIG.presaleAddress, maxUint256],
       });
     } else {
       setBuyStep('buying');
