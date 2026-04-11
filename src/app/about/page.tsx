@@ -49,16 +49,15 @@ export default function AboutPage() {
       <MobileGuard />
       <NavBar />
       
+      <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(59,130,246,0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div style={{ position: 'absolute', right: '-10%', top: '10%', fontSize: '25rem', color: 'rgba(255,255,255,0.015)', fontWeight: 900, fontFamily: 'serif' }}>体系</div>
+        <div style={{ position: 'absolute', left: '-5%', bottom: '10%', fontSize: '18rem', color: 'rgba(255,255,255,0.015)', fontWeight: 900, fontFamily: 'serif' }}>推論</div>
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(rgba(10,10,12,0) 0%, rgba(10,10,12,1) 100%)' }} />
+      </div>
+
       {!isMobile && (
         <>
-          {/* High-Impact Technical Background */}
-          <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(59,130,246,0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-            <div style={{ position: 'absolute', right: '-10%', top: '10%', fontSize: '25rem', color: 'rgba(255,255,255,0.015)', fontWeight: 900, fontFamily: 'serif' }}>体系</div>
-            <div style={{ position: 'absolute', left: '-5%', bottom: '10%', fontSize: '18rem', color: 'rgba(255,255,255,0.015)', fontWeight: 900, fontFamily: 'serif' }}>推論</div>
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(rgba(10,10,12,0) 0%, rgba(10,10,12,1) 100%)' }} />
-          </div>
-
           <div className="container" style={{ position: 'relative', zIndex: 1, paddingTop: '160px', paddingBottom: '120px' }}>
             
             {/* HEADER SECTION */}

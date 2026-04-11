@@ -26,19 +26,19 @@ export function MobileGuard() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       style={{
-        position: 'fixed',
-        top: '72px', // Flush with NavBar
+        top: '72px', 
         left: 0,
         right: 0,
         bottom: 0,
-        zIndex: 9999,
-        background: 'var(--bg-deep)',
+        zIndex: 9998, // Below NavBar (10001)
+        background: 'rgba(7, 7, 10, 0.6)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '30px',
-        textAlign: 'center'
+        padding: '24px',
       }}
     >
       {/* Background Industrial Elements */}
