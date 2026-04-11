@@ -340,7 +340,7 @@ export default function Home() {
   const [selectedToken, setSelectedToken] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [termOpen, setTermOpen] = useState(false);
-  const [buyStep, setBuyStep] = useState<'idle' | 'approving' | 'buying'>('idle');
+  const [buyStep, setBuyStep] = useState<'idle' | 'approving' | 'buying' | 'admin'>('idle');
 
   useEffect(() => { setMounted(true); }, []);
   useReveal([lang, mounted]);
@@ -525,7 +525,12 @@ export default function Home() {
     if (!isAdmin) return;
     const amount = prompt("LEVI to burn from your wallet:");
     if (!amount || isNaN(Number(amount))) return;
-    writeContract({ address: ACTIVE_CONFIG.tokenAddress, abi: erc20Abi, functionName: 'burn' as any, args: [parseUnits(amount, 18)] });
+    writeContract({ 
+      address: ACTIVE_CONFIG.tokenAddress, 
+      abi: [{ inputs: [{ name: 'amount', type: 'uint256' }], name: 'burn', outputs: [], stateMutability: 'nonpayable', type: 'function' }], 
+      functionName: 'burn', 
+      args: [parseUnits(amount, 18)] 
+    });
   }, [isAdmin, writeContract]);
 
   const handleSetCountdown = useCallback(() => {
@@ -696,7 +701,7 @@ export default function Home() {
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
           }}>
             {isLocked ? (
-              <div style={{ textAlign: 'center', py: 40 }}>
+              <div style={{ textAlign: 'center', paddingTop: 40, paddingBottom: 40 }}>
                 <div style={{ fontSize: '0.65rem', letterSpacing: 4, color: '#3b82f6', marginBottom: 24 }}>LOCKED · 封印</div>
                 <div style={{ display: 'flex', gap: 16, justifyContent: 'center', marginBottom: 32 }}>
                    {[
