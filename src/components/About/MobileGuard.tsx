@@ -27,7 +27,7 @@ export function MobileGuard() {
       exit={{ opacity: 0 }}
       style={{
         position: 'fixed',
-        top: '80px', // Below NavBar
+        top: '72px', // Flush with NavBar
         left: 0,
         right: 0,
         bottom: 0,

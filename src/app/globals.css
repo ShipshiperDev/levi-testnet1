@@ -199,7 +199,7 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: 72px;
-  z-index: 100;
+  z-index: 10001;
   background: rgba(7, 7, 10, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -251,7 +251,7 @@ body::before {
   padding: 24px;
   flex-direction: column;
   gap: 20px;
-  z-index: 99;
+  z-index: 10000;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
