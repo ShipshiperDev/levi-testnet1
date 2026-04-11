@@ -45,7 +45,7 @@ export function MobileGuard() {
       <div style={{ position: 'absolute', inset: 0, opacity: 0.05, pointerEvents: 'none', background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, var(--accent-primary) 2px, var(--accent-primary) 4px)', backgroundSize: '100% 4px' }} />
       <div style={{ position: 'absolute', top: '15%', fontSize: '12rem', color: 'rgba(59,130,246,0.03)', fontWeight: 900, fontFamily: 'serif', pointerEvents: 'none' }}>極</div>
 
-      <div className="glass-panel" style={{ padding: '60px 40px', maxWidth: '450px', border: '1px solid var(--accent-primary)', position: 'relative' }}>
+      <div className="glass-panel" style={{ padding: '60px 40px', maxWidth: '450px', position: 'relative' }}>
         <div style={{ marginBottom: '40px', position: 'relative' }}>
           <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
