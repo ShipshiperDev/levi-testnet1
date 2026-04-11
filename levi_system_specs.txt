@@ -1,0 +1,70 @@
+# LEVI — Internal System Specifications
+# LOGIC: Weighted Intelligence Multipliers
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. INTELLIGENCE LAYERS & ROUTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MODE: LEVI CORE
+- Execution Policy: Single-step reasoning.
+- Model Depth: Lightweight (Speed optimized).
+- Data Access: Real-time blockchain indexer only.
+- MULTIPLIER: 1.0x
+
+MODE: LEVI ANALYTICAL ENGINE
+- Execution Policy: Sequential tool-chaining.
+- Model Depth: Balanced (Logic optimized).
+- Data Access: Indexer + Behavioral DB + Historical Trends.
+- MULTIPLIER: 2.5x
+
+MODE: LEVI DEEP COGNITION
+- Execution Policy: Multi-agent orchestration (Asynchronous reasoning).
+- Model Depth: Heavy (Context optimized).
+- Data Access: Full Spectrum (All tools, External APIs, Mapping Engine).
+- MULTIPLIER: 6.0x
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. WEIGHTED COST LOGIC (PREMIUM MOAT)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FORMULA:
+Query Cost = (Base Task Cost) × (Intelligence Multiplier) × (Efficiency Buffer)
+
+EFFICIENCY BUFFER (EB):
+- Guest/Standard User: EB = 1.0
+- Premium User (Staked): EB = 0.6 to 0.8 (Variable based on stake depth)
+
+EXAMPLE (Blockchain Query - Base 1000):
+- Basic User (Core): 1000 × 1.0 × 1.0 = 1000 credits
+- Premium User (Core): 1000 × 1.0 × 0.7 = 700 credits
+- Premium User (Deep): 1000 × 6.0 × 0.7 = 4200 credits
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. FEATURE GATING MATRIX
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+| Feature                | Core (Basic) | Analytics | Deep (Premium) |
+|------------------------|--------------|-----------|----------------|
+| Basic Wallet Check     | [YES]        | [YES]     | [YES]          |
+| Multi-step Analysis    | [NO]         | [YES]     | [YES]          |
+| Behavioral Profiling   | [NO]         | [YES]     | [YES]          |
+| Influencer Graphing    | [NO]         | [NO]      | [YES]          |
+| Custom Data Export     | [NO]         | [NO]      | [YES]          |
+| Multi-agent Research   | [NO]         | [NO]      | [YES]          |
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. STAKING & REWARD LOGIC (ANTI-FARMING)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ACCESS PROTOCOL: 30-DAY LOCK
+1. Initialization: User stakes required threshold (e.g. 200k LEVI).
+2. Lock Phase: Tokens are hard-locked for T = 30 days.
+3. Fluid Phase: After 30 days, tokens remain staked but are withdrawable anytime.
+4. Termination: Upon withdrawal, ALL intelligence access is revoked immediately.
+
+REWARD ARCHITECTURE (NON-INFLATIONARY):
+- Usage Rebates: 10% fund provides small token returns based on compute volume (Query credits consumed).
+- Loyalty Milestones: Bonus drops for staying staked through 60/90/180 day horizons.
+- Access Upgrades: Priority compute routing and early beta access as "Intel-only" rewards.
+- Revenue Endstate: Future distribution of protocol fees to active (using) stakers only.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,46 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PUBLIC DIRECTORY STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+■ /contracts (The Economic Core)
+- LeviToken.sol: The fixed-supply ERC-20 contract logic.
+- LeviPresale.sol: The presale distribution logic.
+- AccessBarrier.sol: The code governing the 30-day lock and revocation.
+[Reason: Mandatory for security audits and trust.]
+
+■ /docs (The Specification Layer)
+- Whitepaper_EN.md: Bulky institutional paper.
+- Whitepaper_JP.md: Engineering-firm specification.
+- API_Coming_Soon.md: The roadmap for external integration.
+
+■ /observatory (The Sensory Edge)
+- PulseMonitor_Sample.py: A basic script demonstrating Tempo Network scanning.
+- DataStructures.json: The schema for how LEVI formats on-chain observations.
+[Reason: Proves the Observation Layer is active without revealing reasoning logic.]
+
+■ /interface (The System OS)
+- UI_Components/: React/Tailwind components for the Vista-style UI.
+- Glassmorphism_System/: The CSS tokens for the brand's visual identity.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRIVATE COMPONENTS (DO NOT UPLOAD)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+● The Reasoning Core: The LLM weights, logic trees, or expert systems.
+● Private Keys: All deployment keys and contract ownership roots.
+● Backend Database: Historical whale movement clusters and raw analytics.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+README.md CONTENT STRATEGY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[Header]
+# LEVI: Autonomous Cognition Infrastructure for Tempo Network
+[Section 1]
+Description: A systemic grounding layer for on-chain reasoning.
+[Section 2]
+Technical Architecture: Brief summary of the 3-Layer Loop (Obs/Int/Exe).
+[Section 3]
+Transparency Statement: "We open-source our economic plumbing while maintaining the privacy of our proprietary cognition loops to ensure the system's competitive edge."
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

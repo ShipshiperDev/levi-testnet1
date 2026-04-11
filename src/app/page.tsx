@@ -309,6 +309,7 @@ export default function Home() {
       title: t('FAQ', 'FAQ'),
       items: [
         { q: t('What is LEVI?', 'LEVIとは何ですか？'), a: t('LEVI is an AI-powered research agent built for the Tempo network. It analyzes onchain activity and converts raw data into actionable insights.', 'LEVIはTempoネットワーク向けに構築されたAI駆動型のリサーチエージェントです。オンチェーン・アクティビティを分析し、生データを実用的な洞察に変換します。') },
+        { q: t('What is the implied valuation (FDV)?', '想定時価総額（FDV）はいくらですか？'), a: t('At the presale rate of $1 per 2,000 tokens ($0.0005 per LEVI), the implied Fully Diluted Valuation (FDV) is $50,000, based on the fixed total supply of 100,000,000 tokens.', 'プレセールレートの1ドルあたり2,000トークン（1 LEVI = 0.0005ドル）の場合、想定時価総額（FDV）は、固定された総供給量1億トークンに基づき50,000ドルとなります。') },
         { q: t('What is the Tempo Network?', 'Tempoネットワークとは何ですか？'), a: t('Tempo is an EVM-compatible Layer 1 blockchain designed for fast and low-cost transactions. LEVI is built natively on it for real-time analysis.', 'Tempoは高速かつ低コストな取引を実現するために設計されたEVM互換のレイヤー1ブロックチェーンです。LEVIはリアルタイム分析のためにその上でネイティブに構築されています。') },
         { q: t('How do I participate in the presale?', 'プレセールへの参加方法は？'), a: t('Connect your wallet via the official platform and contribute using supported assets like pathUSD or AlphaUSD.', '公式プラットフォーム経由でウォレットを接続し、pathUSDやAlphaUSDなどのサポートされている資産を使用して参加します。') },
         { q: t('Is there a limit on purchase?', '購入制限はありますか？'), a: t('Yes. To ensure fair distribution, individual contributions are currently capped at $100 per wallet during the testnet phase.', 'はい。公平な分配を期すため、テストネット段階では1ウォレットあたり100ドルを上限としています。') },
@@ -525,11 +526,11 @@ export default function Home() {
     if (!isAdmin) return;
     const amount = prompt("LEVI to burn from your wallet:");
     if (!amount || isNaN(Number(amount))) return;
-    writeContract({ 
-      address: ACTIVE_CONFIG.tokenAddress, 
-      abi: [{ inputs: [{ name: 'amount', type: 'uint256' }], name: 'burn', outputs: [], stateMutability: 'nonpayable', type: 'function' }], 
-      functionName: 'burn', 
-      args: [parseUnits(amount, 18)] 
+    writeContract({
+      address: ACTIVE_CONFIG.tokenAddress,
+      abi: [{ inputs: [{ name: 'amount', type: 'uint256' }], name: 'burn', outputs: [], stateMutability: 'nonpayable', type: 'function' }],
+      functionName: 'burn',
+      args: [parseUnits(amount, 18)]
     });
   }, [isAdmin, writeContract]);
 
@@ -540,11 +541,11 @@ export default function Home() {
     const target = mins === '0' ? BigInt(0) : BigInt(Math.floor(Date.now() / 1000) + parseInt(mins) * 60);
     setBuyStep('admin');
     pendingToastId.current = toast(`Syncing time with network...`, 'pending');
-    writeContract({ 
-      address: ACTIVE_CONFIG.presaleAddress, 
-      abi: presaleAbi, 
-      functionName: 'setPresaleStartTime', 
-      args: [target] 
+    writeContract({
+      address: ACTIVE_CONFIG.presaleAddress,
+      abi: presaleAbi,
+      functionName: 'setPresaleStartTime',
+      args: [target]
     });
   }, [isAdmin, writeContract]);
 
@@ -617,7 +618,7 @@ export default function Home() {
             <span className="jetbrains" style={{ fontSize: '0.7rem', letterSpacing: 4, color: '#3b82f6', fontWeight: 700 }}>{dict.hero.tag}</span>
           </div>
           <h1 className="noto shimmer-text animate-pulse-glow" style={{ fontSize: 'clamp(3rem, 10vw, 6.5rem)', fontWeight: 900, lineHeight: 1.1, marginBottom: 40, whiteSpace: 'pre-line', letterSpacing: '-0.04em' }}>{dict.hero.h1}</h1>
-          
+
           <div style={{ display: 'flex', gap: 24, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 60 }}>
             {!mounted || !isConnected ? (
               <button className="btn-primary" style={{ padding: '16px 40px', fontSize: '1.05rem' }} onClick={() => connect({ connector: injected() })}>{dict.hero.cta_connect}</button>
@@ -692,10 +693,10 @@ export default function Home() {
         </div>
 
         <div className="presale-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.1fr) minmax(0, 0.9fr)', gap: 32, maxWidth: 1050, margin: '0 auto' }}>
-          
-          <div className="reveal-left glass-panel glass-glow" style={{ 
+
+          <div className="reveal-left glass-panel glass-glow" style={{
             padding: isLocked ? '40px' : '28px',
-            position: 'relative', 
+            position: 'relative',
             border: '0.5px solid rgba(255,255,255,0.15)',
             background: 'linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.04\'/%3E%3C/svg%3E")',
             transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
@@ -704,16 +705,16 @@ export default function Home() {
               <div style={{ textAlign: 'center', paddingTop: 40, paddingBottom: 40 }}>
                 <div style={{ fontSize: '0.65rem', letterSpacing: 4, color: '#3b82f6', marginBottom: 24 }}>LOCKED · 封印</div>
                 <div style={{ display: 'flex', gap: 16, justifyContent: 'center', marginBottom: 32 }}>
-                   {[
-                     { val: timeLeft.h, label: 'H' },
-                     { val: timeLeft.m, label: 'M' },
-                     { val: timeLeft.s, label: 'S' }
-                   ].map((t, i) => (
-                     <div key={i} style={{ padding: '16px 20px', background: 'rgba(255,255,255,0.02)', border: '0.5px solid rgba(255,255,255,0.1)', borderRadius: 8 }}>
-                       <div className="jetbrains" style={{ fontSize: '2rem', fontWeight: 800 }}>{t.val.toString().padStart(2, '0')}</div>
-                       <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', marginTop: 4 }}>{t.label}</div>
-                     </div>
-                   ))}
+                  {[
+                    { val: timeLeft.h, label: 'H' },
+                    { val: timeLeft.m, label: 'M' },
+                    { val: timeLeft.s, label: 'S' }
+                  ].map((t, i) => (
+                    <div key={i} style={{ padding: '16px 20px', background: 'rgba(255,255,255,0.02)', border: '0.5px solid rgba(255,255,255,0.1)', borderRadius: 8 }}>
+                      <div className="jetbrains" style={{ fontSize: '2rem', fontWeight: 800 }}>{t.val.toString().padStart(2, '0')}</div>
+                      <div style={{ fontSize: '0.6rem', color: 'var(--text-muted)', marginTop: 4 }}>{t.label}</div>
+                    </div>
+                  ))}
                 </div>
                 <p className="noto" style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>The terminal is preparing for autonomous synchronization.</p>
               </div>
@@ -793,9 +794,9 @@ export default function Home() {
             <h2 className="noto" style={{ fontSize: '3rem', fontWeight: 700 }}>{dict.faq.title}</h2>
           </div>
           <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 850, margin: '0 auto' }}>
-             {dict.faq.items.map((item, idx) => (
-               <FaqItem key={idx} q={item.q} a={item.a} />
-             ))}
+            {dict.faq.items.map((item, idx) => (
+              <FaqItem key={idx} q={item.q} a={item.a} />
+            ))}
           </div>
         </div>
       </section>
@@ -805,7 +806,7 @@ export default function Home() {
           <div className="text-gradient jetbrains" style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: 20 }}>LEVI</div>
           <div style={{ display: 'flex', gap: 30, justifyContent: 'center', marginBottom: 40, flexWrap: 'wrap' }}>
             <a href="#about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>About</a>
-            <a href="#presale" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>Presale</a>
+            <a href="https://x.com/levilabstempo" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>Twitter</a>
             <a href="https://moderato.tempo.xyz" target="_blank" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem' }}>Tempo Explorer</a>
           </div>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.8rem', letterSpacing: 1 }}>{dict.footer.copyright}</p>
@@ -819,13 +820,13 @@ export default function Home() {
               <div className="section-label" style={{ color: '#3b82f6' }}>OWNER ONLY</div>
               <h2 className="jetbrains" style={{ fontSize: '2rem', fontWeight: 900 }}>{dict.admin.title}</h2>
             </div>
-            
+
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20, maxWidth: 1000, margin: '0 auto' }}>
               <div className="glass-panel" style={{ padding: 32, textAlign: 'center' }}>
                 <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: 16 }}>COLLECT STABLES</div>
                 <button className="btn-primary" style={{ width: '100%' }} onClick={handleWithdrawFunds}>Withdraw USD</button>
               </div>
-              
+
               <div className="glass-panel" style={{ padding: 32, textAlign: 'center' }}>
                 <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: 16 }}>RECOVER UNSOLD</div>
                 <button className="btn-secondary" style={{ width: '100%' }} onClick={handleWithdrawLevi}>Withdraw LEVI</button>

@@ -10,7 +10,7 @@ async function main() {
     "0x20c0000000000000000000000000000000000000", // pathUSD
     "0x20c0000000000000000000000000000000000001"  // AlphaUSD
   ];
-  const rate = 20000;
+  const rate = 2000; // 0.0005 USD per token
   
   console.log("Deploying new LeviPresale ($200 Limit)...");
   const LeviPresale = await hre.ethers.getContractFactory("LeviPresale");

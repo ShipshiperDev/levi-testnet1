@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 
 export function NavBar() {
@@ -15,6 +16,10 @@ export function NavBar() {
     presale: t('Presale', 'プレセール'),
   };
 
+  const pathname = usePathname();
+  const isAboutPage = pathname === '/about';
+  const getHref = (id: string) => isAboutPage ? `/${id}` : id;
+
   return (
     <>
       <nav className="navbar">
@@ -27,11 +32,11 @@ export function NavBar() {
 
           {/* Desktop links */}
           <div className="nav-links" style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
-            <a href="#home">{dict.home}</a>
-            <a href="#about">{dict.about}</a>
-            <a href="#how">{dict.how}</a>
-            <a href="#tokenomics">{dict.tokenomics}</a>
-            <a href="#presale" className="active">{dict.presale}</a>
+            <a href={getHref('#home')}>{dict.home}</a>
+            <a href="/about" className={isAboutPage ? 'active' : ''}>{dict.about}</a>
+            <a href={getHref('#how')}>{dict.how}</a>
+            <a href={getHref('#tokenomics')}>{dict.tokenomics}</a>
+            <a href={getHref('#presale')} className="active">{dict.presale}</a>
             
             {/* Lang Toggle */}
             <button 
@@ -83,11 +88,11 @@ export function NavBar() {
           </button>
         </div>
         {[
-          { label: dict.home, href: '#home' },
-          { label: dict.about, href: '#about' },
-          { label: dict.how, href: '#how' },
-          { label: dict.tokenomics, href: '#tokenomics' },
-          { label: dict.presale, href: '#presale' },
+          { label: dict.home, href: getHref('#home') },
+          { label: dict.about, href: '/about' },
+          { label: dict.how, href: getHref('#how') },
+          { label: dict.tokenomics, href: getHref('#tokenomics') },
+          { label: dict.presale, href: getHref('#presale') },
         ].map((item) => (
           <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}>
             {item.label}

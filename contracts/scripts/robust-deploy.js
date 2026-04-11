@@ -21,7 +21,7 @@ async function main() {
     "0x20c0000000000000000000000000000000000000",
     "0x20c0000000000000000000000000000000000001"
   ];
-  const rate = 20000;
+  const rate = 2000; // 0.0005 USD per token
 
   const factory = new ethers.ContractFactory(artifact.abi, artifact.bytecode, wallet);
   
