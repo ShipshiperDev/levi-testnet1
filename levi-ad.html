@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEVI — The Onchain Intelligence </title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #2563ff;
+      --cyan: #00d4ff;
+      --bg: #03040a;
+      --white: #e8eeff;
+    }
+
+    html,
+    body {
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      background: var(--bg);
+      font-family: 'Space Grotesk', sans-serif;
+      color: var(--white);
+      cursor: none;
+    }
+
+    /* ── BG & BRAIN CANVAS ─────────────────────────── */
+    #bg-canvas,
+    #brain-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0;
+      transition: opacity 1.2s;
+    }
+
+    #bg-canvas.visible {
+      opacity: 1;
+    }
+
+    #brain-canvas {
+      z-index: 2;
+    }
+
+    #brain-canvas.visible {
+      opacity: 1;
+    }
+
+    /* ── PROGRESS BAR ──────────────────────────────── */
+    #progress-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      width: 0%;
+      z-index: 100;
+      box-shadow: 0 0 12px var(--cyan);
+    }
+
+    /* ── OVERLAYS ──────────────────────────────────── */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.03) 0px, rgba(0, 0, 0, 0.03) 1px, transparent 1px, transparent 3px);
+    }
+
+    .vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 89;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+    }
+
+    .levi-badge {
+      position: fixed;
+      top: 36px;
+      left: 48px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: rgba(0, 212, 255, 0.4);
+      z-index: 95;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .levi-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.2
+      }
+    }
+
+    /* ── SCENE BASE ────────────────────────────────── */
+    .scene {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .scene.active {
+      animation: fadeIn 1.2s forwards;
+    }
+
+    .scene.fade-out {
+      animation: fadeOut 1.2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(1.02)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1
+      }
+
+      to {
+        opacity: 0
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.6)
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.55
+      }
+    }
+
+    /* ── SCENE 1 ───────────────────────────────────── */
+    .s1-line {
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      color: var(--cyan);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: slideUp .8s .5s forwards;
+    }
+
+    .s1-headline {
+      font-size: 80px;
+      font-weight: 700;
+      line-height: 1.05;
+      text-align: center;
+      margin-top: 20px;
+      opacity: 0;
+      animation: slideUp 1s 1.1s forwards;
+      background: linear-gradient(135deg, #fff 30%, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: lowercase;
+    }
+
+    .s1-sub {
+      font-size: 22px;
+      font-weight: 300;
+      color: rgba(232, 238, 255, .55);
+      margin-top: 24px;
+      opacity: 0;
+      animation: slideUp 1s 2s forwards;
+      letter-spacing: 1px;
+      text-transform: lowercase;
+    }
+
+    /* ── SCENE 2 ───────────────────────────────────── */
+    .s2-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 7px;
+      color: var(--cyan);
+      text-transform: lowercase;
+      opacity: 0;
+      animation: slideUp .8s .4s forwards;
+      position: relative;
+      z-index: 15;
+      margin-top: -260px;
+    }
+
+    .s2-headline {
+      font-size: 58px;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 12px;
+      opacity: 0;
+      animation: slideUp .9s 1s forwards;
+      background: linear-gradient(135deg, #fff 30%, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 15;
+      text-transform: lowercase;
+    }
+
+    .s2-footer {
+      font-size: 18px;
+      color: rgba(232, 238, 255, .4);
+      font-weight: 300;
+      margin-top: 6px;
+      position: relative;
+      z-index: 15;
+      opacity: 0;
+      animation: slideUp 1s 2.2s forwards;
+      text-transform: lowercase;
+    }
+
+    /* ── SCENE 3 ───────────────────────────────────── */
+    .s3-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 7px;
+      color: var(--cyan);
+      text-transform: lowercase;
+      opacity: 0;
+      animation: slideUp .8s .3s forwards;
+    }
+
+    .s3-headline {
+      font-size: 90px;
+      font-weight: 700;
+      margin-top: 16px;
+      text-align: center;
+      line-height: 1;
+      opacity: 0;
+      animation: slideUp 1s 1s forwards;
+      text-transform: lowercase;
+    }
+
+    .s3-headline .dim {
+      color: rgba(232, 238, 255, .18);
+    }
+
+    .s3-headline .bright {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .s3-body {
+      max-width: 700px;
+      text-align: center;
+      font-size: 22px;
+      color: rgba(232, 238, 255, .5);
+      font-weight: 300;
+      margin-top: 32px;
+      line-height: 1.7;
+      opacity: 0;
+      animation: slideUp 1s 2s forwards;
+      text-transform: lowercase;
+    }
+
+    /* ── SCENE 4 ───────────────────────────────────── */
+    .s4-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 7px;
+      color: var(--cyan);
+      text-transform: lowercase;
+      opacity: 0;
+      animation: slideUp .8s .3s forwards;
+    }
+
+    .s4-headline {
+      font-size: 88px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.05;
+      margin-top: 16px;
+      opacity: 0;
+      animation: slideUp 1s .9s forwards;
+      background: linear-gradient(135deg, #fff 0%, var(--cyan) 60%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: lowercase;
+    }
+
+    .s4-cards {
+      display: flex;
+      gap: 24px;
+      margin-top: 48px;
+      opacity: 0;
+      animation: slideUp 1s 1.8s forwards;
+    }
+
+    .s4-card {
+      width: 240px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(0, 212, 255, .2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+    }
+
+    .s4-card-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .s4-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: lowercase;
+    }
+
+    .s4-card-desc {
+      font-size: 13px;
+      color: rgba(232, 238, 255, .45);
+      margin-top: 8px;
+      line-height: 1.5;
+      text-transform: lowercase;
+    }
+
+
+    /* ── SCENE 5: LEVI REVEAL ──────────────────────── */
+    .s5-logo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: scaleIn 1.2s .4s cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .s5-logo-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, .3);
+      animation: ringPulse 3s infinite;
+    }
+
+    .s5-logo-ring:nth-child(1) {
+      width: 200px;
+      height: 200px;
+    }
+
+    .s5-logo-ring:nth-child(2) {
+      width: 260px;
+      height: 260px;
+      animation-delay: .5s;
+      border-color: rgba(37, 99, 255, .2);
+    }
+
+    .s5-logo-ring:nth-child(3) {
+      width: 340px;
+      height: 340px;
+      animation-delay: 1s;
+      border-color: rgba(0, 212, 255, .1);
+    }
+
+    @keyframes ringPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: .8
+      }
+
+      50% {
+        transform: scale(1.06);
+        opacity: .3
+      }
+    }
+
+    .s5-logo-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(0, 212, 255, .5);
+      box-shadow: 0 0 60px rgba(0, 212, 255, .4), 0 0 120px rgba(37, 99, 255, .2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .s5-name {
+      font-size: 96px;
+      font-weight: 700;
+      letter-spacing: 12px;
+      text-align: center;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0;
+      animation: slideUp 1s 1.6s forwards;
+    }
+
+    .s5-tagline {
+      font-size: 22px;
+      font-weight: 300;
+      color: rgba(232, 238, 255, .55);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: slideUp 1s 2.2s forwards;
+    }
+
+    /* ── SCENE 6: FEATURES ─────────────────────────── */
+    .s6-headline {
+      font-size: 56px;
+      font-weight: 700;
+      text-align: center;
+      opacity: 0;
+      animation: slideUp .9s .3s forwards;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .s6-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+      width: 900px;
+    }
+
+    .s6-feat {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(0, 212, 255, .15);
+      border-radius: 16px;
+      padding: 28px;
+      opacity: 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .s6-feat:nth-child(1) {
+      animation: slideUp .8s .7s forwards;
+    }
+
+    .s6-feat:nth-child(2) {
+      animation: slideUp .8s 1.0s forwards;
+    }
+
+    .s6-feat:nth-child(3) {
+      animation: slideUp .8s 1.3s forwards;
+    }
+
+    .s6-feat:nth-child(4) {
+      animation: slideUp .8s 1.6s forwards;
+    }
+
+    .s6-feat:nth-child(5) {
+      animation: slideUp .8s 1.9s forwards;
+    }
+
+    .s6-feat:nth-child(6) {
+      animation: slideUp .8s 2.2s forwards;
+    }
+
+    .s6-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .s6-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cyan);
+    }
+
+    .s6-desc {
+      font-size: 13px;
+      color: rgba(232, 238, 255, .45);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ── SCENE 7: CTA ───────────────────────────────── */
+    .s7-built {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      opacity: 0;
+      animation: slideUp .8s .3s forwards;
+    }
+
+    .s7-headline {
+      font-size: 80px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.1;
+      margin-top: 20px;
+      opacity: 0;
+      animation: slideUp 1s .9s forwards;
+      background: linear-gradient(135deg, #fff 20%, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .s7-sub {
+      font-size: 22px;
+      color: rgba(232, 238, 255, .45);
+      text-align: center;
+      margin-top: 20px;
+      font-weight: 300;
+      opacity: 0;
+      animation: slideUp 1s 1.6s forwards;
+    }
+
+    .s7-url {
+      margin-top: 40px;
+      font-family: 'Space Mono', monospace;
+      font-size: 18px;
+      letter-spacing: 4px;
+      color: var(--cyan);
+      border: 1px solid rgba(0, 212, 255, .3);
+      border-radius: 50px;
+      padding: 14px 40px;
+      opacity: 0;
+      animation: slideUp 1s 2.2s forwards;
+      box-shadow: 0 0 30px rgba(0, 212, 255, .15);
+    }
+
+    .s7-logo-final {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid rgba(0, 212, 255, .4);
+      box-shadow: 0 0 40px rgba(0, 212, 255, .3);
+      margin-top: 32px;
+      opacity: 0;
+      animation: scaleIn 1s 2.8s forwards;
+    }
+
+    /* ── START OVERLAY ────────────────────────────── */
+    #start-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s, visibility 1s;
+    }
+
+    #start-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .start-btn {
+      background: none;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      padding: 20px 60px;
+      font-family: 'Space Mono', monospace;
+      font-size: 18px;
+      letter-spacing: 6px;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+    }
+
+    .start-btn:hover {
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+    }
+
+    .start-btn::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.4), transparent);
+      animation: scanBtn 3s infinite linear;
+    }
+
+    @keyframes scanBtn {
+      0% {
+        top: -100%;
+      }
+
+      100% {
+        top: 200%;
+      }
+    }
+
+    .start-hint {
+      margin-top: 24px;
+      font-size: 12px;
+      color: rgba(0, 212, 255, 0.4);
+      letter-spacing: 2px;
+      text-transform: lowercase;
+      animation: pulse 2s infinite;
+    }
+
+    /* ── MUTE TOGGLE ─────────────────────────────── */
+    #mute-toggle {
+      position: fixed;
+      top: 36px;
+      right: 48px;
+      z-index: 100;
+      background: none;
+      border: none;
+      color: rgba(232, 238, 255, 0.4);
+      cursor: pointer;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 2px;
+      padding: 10px;
+    }
+
+    #mute-toggle:hover {
+      color: var(--cyan);
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="bg-canvas"></canvas>
+  <canvas id="brain-canvas"></canvas>
+
+  <div class="scanlines"></div>
+  <div class="vignette"></div>
+  <div id="progress-bar"></div>
+  <div class="levi-badge"><span class="levi-badge-dot"></span> LEVI · INTELLIGENCE</div>
+
+  <div id="start-overlay">
+    <button class="start-btn" id="init-btn">Initialize Levi</button>
+  </div>
+
+  <button id="mute-toggle">AUDIO: ON</button>
+
+
+  <!-- S1: THE BLOCKCHAIN NEVER SLEEPS -->
+  <div class="scene" id="s1">
+    <div class="s1-line">— the new frontier —</div>
+    <div class="s1-headline">the blockchain<br />never sleeps.</div>
+    <div class="s1-sub">neither does what we built on top of it.</div>
+  </div>
+
+  <!-- S2: THE POWERHOUSE (brain canvas behind) -->
+  <div class="scene" id="s2">
+    <div class="s2-eyebrow">research powerhouse</div>
+    <div class="s2-headline">levi thinks in real time.</div>
+    <div class="s2-footer">built on tempo. it runs the loop.</div>
+  </div>
+
+  <!-- S3: THE PROBLEM -->
+  <div class="scene" id="s3">
+    <div class="s3-eyebrow">the problem</div>
+    <div class="s3-headline">
+      <span class="dim">the human</span><br />
+      <span class="bright">bottleneck.</span>
+    </div>
+    <div class="s3-body">manual research can't keep up. signals vanish before they're seen. influencers move, narratives
+      shift, and you're left behind.</div>
+  </div>
+
+  <!-- S4: THE LOGIC -->
+  <div class="scene" id="s4">
+    <div class="s4-label">the logic</div>
+    <div class="s4-headline">onchain + offchain.</div>
+    <div class="s4-cards">
+      <div class="s4-card">
+        <div class="s4-card-icon"></div>
+        <div class="s4-card-title">x intelligence</div>
+        <div class="s4-card-desc">mapping influencer clusters and trending narratives in real time.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-icon"></div>
+        <div class="s4-card-title">mpp + x402</div>
+        <div class="s4-card-desc">autonomous payments for deep research compute and signal flow.</div>
+      </div>
+      <div class="s4-card">
+        <div class="s4-card-icon"></div>
+        <div class="s4-card-title">the loop</div>
+        <div class="s4-card-desc">launch → earn → reinvest → scale. the machine economy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: LEVI REVEAL -->
+  <div class="scene" id="s5">
+    <div class="s5-logo-wrap">
+      <div class="s5-logo-ring"></div>
+      <div class="s5-logo-ring"></div>
+      <div class="s5-logo-ring"></div>
+      <img class="s5-logo-img" src="new logo.png" alt="LEVI" onerror="this.style.display='none'" />
+    </div>
+    <div class="s5-name">levi</div>
+    <div class="s5-tagline">onchain research powerhouse · built on tempo</div>
+  </div>
+
+  <!-- S6: FEATURES -->
+  <div class="scene" id="s6">
+    <div class="s6-headline">built different.</div>
+    <div class="s6-grid">
+      <div class="s6-feat">
+        <div class="s6-icon">📱</div>
+        <div class="s6-title">social signal mapping</div>
+        <div class="s6-desc">tracking x narratives and influencer movement autonomously.</div>
+      </div>
+      <div class="s6-feat">
+        <div class="s6-icon">🔍</div>
+        <div class="s6-title">narrative tracking</div>
+        <div class="s6-desc">mapping what is actually working across the tempo network.</div>
+      </div>
+      <div class="s6-feat">
+        <div class="s6-icon"></div>
+        <div class="s6-title">autonomous loop</div>
+        <div class="s6-desc">agents that earn and reinvest. powered by mpp + x402.</div>
+      </div>
+      <div class="s6-feat">
+        <div class="s6-icon"></div>
+        <div class="s6-title">tempo powerhouse</div>
+        <div class="s6-desc">the definitive research engine for the tempo ecosystem.</div>
+      </div>
+      <div class="s6-feat">
+        <div class="s6-icon"></div>
+        <div class="s6-title">token & nft alpha</div>
+        <div class="s6-desc">surface high-conviction signals before and after the market catches up.</div>
+      </div>
+      <div class="s6-feat">
+        <div class="s6-icon"></div>
+        <div class="s6-title">onchain execution</div>
+        <div class="s6-desc">integrated with tempo for fast, low-cost autonomous research.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S7: CTA -->
+  <div class="scene" id="s7">
+    <div class="s7-built">the future of research</div>
+    <div class="s7-headline">intelligence that<br />never sleeps.</div>
+    <div class="s7-sub">it reads the chain and the social layer — so you don't have to.</div>
+    <div class="s7-url">levi · tempo network</div>
+    <img class="s7-logo-final" src="new logo.png" alt="LEVI" onerror="this.style.display='none'" />
+  </div>
+
+
+  <script>
+    /* ══════════════════════════════════════════════════
+       BG CANVAS — particles + matrix rain
+    ══════════════════════════════════════════════════ */
+    const bgCv = document.getElementById('bg-canvas');
+    const bgCtx = bgCv.getContext('2d');
+    bgCv.width = window.innerWidth;
+    bgCv.height = window.innerHeight;
+    const W = bgCv.width, H = bgCv.height;
+
+    const pts = Array.from({ length: 140 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.5 + .3,
+      vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
+      a: Math.random()
+    }));
+    const cols = Math.floor(W / 28);
+    const drops = Array.from({ length: cols }, () => Math.random() * -H);
+    const CHARS = 'アイウエオカキクケコサシスセソタチツテトナ0123456789ABCDEF←→↑↓◆◇✦';
+    let matA = 0, matTarget = 0, bgFrame = 0;
+
+    function drawBG() {
+      bgCtx.clearRect(0, 0, W, H);
+      const g = bgCtx.createRadialGradient(W / 2, H / 2, 0, W / 2, H / 2, W * .75);
+      g.addColorStop(0, 'rgba(10,20,60,.98)'); g.addColorStop(1, 'rgba(3,4,10,1)');
+      bgCtx.fillStyle = g; bgCtx.fillRect(0, 0, W, H);
+      if (matA > 0) {
+        bgCtx.font = '14px Space Mono,monospace';
+        for (let i = 0; i < cols; i++) {
+          bgCtx.fillStyle = `rgba(0,212,255,${matA * .85})`;
+          bgCtx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * 28, drops[i]);
+          bgCtx.fillStyle = `rgba(0,212,255,${matA * .1})`;
+          bgCtx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * 28, drops[i] - 28);
+          if (drops[i] > H && Math.random() > .97) drops[i] = 0;
+          drops[i] += 24;
+        }
+      }
+      pts.forEach(p => {
+        const a = .3 + .4 * Math.sin(bgFrame * .01 + p.a * 10);
+        bgCtx.beginPath(); bgCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        bgCtx.fillStyle = `rgba(0,212,255,${a})`; bgCtx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      });
+      for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+        const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < 140) {
+          bgCtx.beginPath(); bgCtx.moveTo(pts[i].x, pts[i].y); bgCtx.lineTo(pts[j].x, pts[j].y);
+          bgCtx.strokeStyle = `rgba(0,212,255,${.09 * (1 - d / 140)})`; bgCtx.lineWidth = .5; bgCtx.stroke();
+        }
+      }
+      matA += (matTarget - matA) * .05;
+      bgFrame++;
+      requestAnimationFrame(drawBG);
+    }
+    drawBG();
+    setTimeout(() => bgCv.classList.add('visible'), 100);
+
+    /* ══════════════════════════════════════════════════
+       BRAIN CANVAS — LEVI Neural Intelligence Layer
+    ══════════════════════════════════════════════════ */
+    const brCv = document.getElementById('brain-canvas');
+    const brCtx = brCv.getContext('2d');
+    brCv.width = window.innerWidth;
+    brCv.height = window.innerHeight;
+    const BW = brCv.width, BH = brCv.height;
+    const CX = BW / 2, CY = BH / 2 + 50;
+
+    // Define nodes: core + inner ring + outer ring
+    const NODES = [
+      { label: 'LEVI', sub: 'Core', r: 58, cx: CX, cy: CY, core: true },
+      // inner ring
+      { label: 'Wallet Intel', sub: 'Behavioral mapping', r: 36, angle: 0, dist: 295 },
+      { label: 'Signal Detection', sub: 'Real-time alerts', r: 36, angle: 51, dist: 268 },
+      { label: 'Pattern Recognition', sub: 'ML analysis', r: 36, angle: 108, dist: 285 },
+      { label: 'Threat Analysis', sub: 'Anomaly scanning', r: 36, angle: 163, dist: 270 },
+      { label: 'Market Mapping', sub: 'Liquidity flows', r: 36, angle: 216, dist: 280 },
+      { label: 'Contract Audit', sub: 'Code intelligence', r: 36, angle: 271, dist: 262 },
+      { label: 'Agent Actions', sub: 'Autonomous exec.', r: 36, angle: 325, dist: 292 },
+      // outer ring
+      { label: 'Chain Memory', sub: 'Historical ctx', r: 26, angle: 25, dist: 445 },
+      { label: 'Cross-Chain', sub: 'Multi-network', r: 26, angle: 130, dist: 430 },
+      { label: 'Risk Scoring', sub: 'Live risk model', r: 26, angle: 200, dist: 440 },
+      { label: 'Token Tracking', sub: 'Supply intel', r: 26, angle: 302, dist: 438 },
+    ];
+    NODES.forEach(n => {
+      if (!n.core) {
+        const a = (n.angle - 90) * Math.PI / 180;
+        n.cx = CX + Math.cos(a) * n.dist;
+        n.cy = CY + Math.sin(a) * n.dist;
+      }
+    });
+
+    // Pulse sparks
+    const sparks = [];
+    function spark(a, b) { sparks.push({ a, b, t: 0, spd: .007 + Math.random() * .006 }); }
+    // seed initial sparks
+    for (let i = 1; i < 8; i++) spark(NODES[0], NODES[i]);
+    for (let i = 8; i < 12; i++) spark(NODES[i - 7], NODES[i]);
+
+    let brFrame = 0;
+    let brainOn = false;
+
+    function drawBrain() {
+      brCtx.clearRect(0, 0, BW, BH);
+      if (!brainOn) { requestAnimationFrame(drawBrain); return; }
+      brFrame++;
+
+      // Spawn new sparks
+      if (brFrame % 38 === 0) {
+        const to = NODES[1 + Math.floor(Math.random() * 7)];
+        spark(NODES[0], to);
+        if (Math.random() > .45) spark(to, NODES[8 + Math.floor(Math.random() * 4)]);
+      }
+
+      // Draw edges: core → inner
+      for (let i = 1; i < 8; i++) {
+        brCtx.beginPath();
+        brCtx.moveTo(NODES[0].cx, NODES[0].cy);
+        brCtx.lineTo(NODES[i].cx, NODES[i].cy);
+        brCtx.strokeStyle = 'rgba(0,212,255,0.13)';
+        brCtx.lineWidth = 1.2; brCtx.stroke();
+      }
+      // inner → outer
+      [[1, 8], [2, 8], [3, 9], [4, 9], [5, 10], [6, 10], [7, 11], [1, 11]].forEach(([a, b]) => {
+        brCtx.beginPath();
+        brCtx.moveTo(NODES[a].cx, NODES[a].cy);
+        brCtx.lineTo(NODES[b].cx, NODES[b].cy);
+        brCtx.strokeStyle = 'rgba(37,99,255,0.09)';
+        brCtx.lineWidth = .7; brCtx.stroke();
+      });
+
+      // Draw nodes
+      NODES.forEach((n, idx) => {
+        const flicker = .72 + .28 * Math.sin(brFrame * .045 + idx * 1.4);
+        if (n.core) {
+          // outer glow rings
+          [[100, .04], [78, .1], [58, .22]].forEach(([r, a]) => {
+            brCtx.beginPath(); brCtx.arc(n.cx, n.cy, r, 0, Math.PI * 2);
+            brCtx.strokeStyle = `rgba(0,212,255,${a * flicker})`; brCtx.lineWidth = 1.4; brCtx.stroke();
+          });
+          // fill
+          const grd = brCtx.createRadialGradient(n.cx, n.cy, 0, n.cx, n.cy, 58);
+          grd.addColorStop(0, 'rgba(0,212,255,.28)'); grd.addColorStop(1, 'rgba(10,20,60,.05)');
+          brCtx.beginPath(); brCtx.arc(n.cx, n.cy, 58, 0, Math.PI * 2);
+          brCtx.fillStyle = grd; brCtx.fill();
+          // core text
+          brCtx.textAlign = 'center';
+          brCtx.fillStyle = '#ffffff'; brCtx.font = 'bold 18px Space Grotesk,sans-serif';
+          brCtx.fillText('LEVI', n.cx, n.cy - 2);
+          brCtx.fillStyle = 'rgba(0,212,255,.85)'; brCtx.font = '10px Space Mono,monospace';
+          brCtx.fillText('CORE', n.cx, n.cy + 15);
+        } else {
+          const inner = n.dist < 350;
+          const col = inner ? '0,212,255' : '60,110,255';
+          brCtx.beginPath(); brCtx.arc(n.cx, n.cy, n.r, 0, Math.PI * 2);
+          brCtx.fillStyle = `rgba(${col},${(inner ? .09 : .05) * flicker})`; brCtx.fill();
+          brCtx.strokeStyle = `rgba(${col},${(inner ? .55 : .3) * flicker})`; brCtx.lineWidth = inner ? 1.3 : .8; brCtx.stroke();
+          // labels
+          brCtx.textAlign = 'center';
+          brCtx.fillStyle = `rgba(${col},${.92 * flicker})`;
+          brCtx.font = `${inner ? 'bold 12px' : '11px'} Space Grotesk,sans-serif`;
+          brCtx.fillText(n.label, n.cx, n.cy - 1);
+          brCtx.fillStyle = 'rgba(232,238,255,.32)'; brCtx.font = '9px Space Grotesk,sans-serif';
+          brCtx.fillText(n.sub, n.cx, n.cy + 12);
+        }
+      });
+
+      // Animate sparks
+      for (let i = sparks.length - 1; i >= 0; i--) {
+        const s = sparks[i];
+        s.t += s.spd;
+        if (s.t >= 1) { sparks.splice(i, 1); continue; }
+        const px = s.a.cx + (s.b.cx - s.a.cx) * s.t;
+        const py = s.a.cy + (s.b.cy - s.a.cy) * s.t;
+        const al = Math.sin(s.t * Math.PI);
+        brCtx.beginPath(); brCtx.arc(px, py, 4, 0, Math.PI * 2);
+        brCtx.fillStyle = `rgba(0,212,255,${al * .95})`; brCtx.fill();
+        brCtx.beginPath(); brCtx.arc(px, py, 9, 0, Math.PI * 2);
+        brCtx.fillStyle = `rgba(0,212,255,${al * .12})`; brCtx.fill();
+      }
+
+      requestAnimationFrame(drawBrain);
+    }
+    drawBrain();
+
+    /* ══════════════════════════════════════════════════
+       TIMELINE
+    ══════════════════════════════════════════════════ */
+    const TOTAL = 60000;
+    const TL = [
+      [0, 8000, 's1', '01'],
+      [8000, 18000, 's2', '02'],
+      [18000, 27000, 's3', '03'],
+      [27000, 38000, 's4', '04'],
+      [38000, 47000, 's5', '05'],
+      [47000, 55000, 's6', '06'],
+      [55000, 60000, 's7', '07'],
+    ];
+
+    let currentScene = null;
+    const bar = document.getElementById('progress-bar');
+
+    let t0 = performance.now();
+
+    function tick() {
+      const el = performance.now() - t0;
+      bar.style.width = Math.min(el / TOTAL * 100, 100) + '%';
+      for (const [start, end, id, lbl] of TL) {
+        if (el >= start && el < end && currentScene !== id) {
+          if (currentScene) {
+            const old = document.getElementById(currentScene);
+            old.classList.remove('active'); old.classList.add('fade-out');
+            setTimeout(() => old.classList.remove('fade-out'), 1200);
+          }
+          document.getElementById(id).classList.add('active');
+
+          // Trigger transition sound
+          if (soundEngine) {
+            soundEngine.glitch();
+            soundEngine.moodShift(id);
+            if (id === 's5' || id === 's7') soundEngine.impact();
+          }
+
+          currentScene = id;
+
+          // matrix rain only on scene 1
+          matTarget = id === 's1' ? .6 : 0;
+          // brain canvas only on scene 2
+          brainOn = (id === 's2');
+          if (id === 's2') {
+            setTimeout(() => brCv.classList.add('visible'), 500);
+          } else {
+            brCv.classList.remove('visible');
+          }
+        }
+      }
+      if (el < TOTAL) requestAnimationFrame(tick);
+      else location.reload();
+    }
+
+    /* ══════════════════════════════════════════════════
+       AUDIO ENGINE — Synthesized Soundscape
+    ══════════════════════════════════════════════════ */
+    class SoundEngine {
+      constructor() {
+        this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+        this.ctx.resume();
+        this.master = this.ctx.createGain();
+        this.master.gain.value = 0.5;
+        this.master.connect(this.ctx.destination);
+
+        this.filter = this.ctx.createBiquadFilter();
+        this.filter.type = 'lowpass';
+        this.filter.frequency.value = 400;
+        this.filter.connect(this.master);
+
+        this.muted = false;
+        this.oscs = [];
+        this.initLayers();
+      }
+
+      initLayers() {
+        this.baseDrone();
+        this.rhythmLayer();
+        this.startPings();
+      }
+
+      baseDrone() {
+        // Deep fundamental + FM metallic layer
+        const freqs = [41.2, 55, 82.4];
+        freqs.forEach((f, i) => {
+          const osc = this.ctx.createOscillator();
+          const g = this.ctx.createGain();
+          osc.type = i === 2 ? 'sawtooth' : 'sine';
+          osc.frequency.value = f;
+          g.gain.value = 0.04;
+
+          const mod = this.ctx.createOscillator();
+          const modG = this.ctx.createGain();
+          mod.frequency.value = f * 1.5;
+          modG.gain.value = 20;
+          mod.connect(modG);
+          modG.connect(osc.frequency);
+
+          osc.connect(g);
+          g.connect(this.filter);
+          osc.start();
+          mod.start();
+          this.oscs.push(osc);
+        });
+      }
+
+      rhythmLayer() {
+        // Rhythmic "data pulse"
+        const interval = 0.15;
+        const pulse = () => {
+          if (this.muted) { setTimeout(pulse, interval * 1000); return; }
+          const now = this.ctx.currentTime;
+          const o = this.ctx.createOscillator();
+          const g = this.ctx.createGain();
+          o.type = 'square';
+          o.frequency.setValueAtTime(60, now);
+          o.frequency.exponentialRampToValueAtTime(20, now + 0.1);
+          g.gain.setValueAtTime(0.015, now);
+          g.gain.exponentialRampToValueAtTime(0.0001, now + 0.1);
+          o.connect(g);
+          g.connect(this.master);
+          o.start(now);
+          o.stop(now + 0.1);
+          setTimeout(pulse, interval * 1000);
+        };
+        pulse();
+      }
+
+      startPings() {
+        const blip = () => {
+          if (!this.muted && Math.random() > 0.4) {
+            this.ping(600 + Math.random() * 2000, 0.02, 0.1);
+          }
+          setTimeout(blip, 200 + Math.random() * 800);
+        };
+        blip();
+      }
+
+      moodShift(scene) {
+        const now = this.ctx.currentTime;
+        let freq = 400;
+        if (scene === 's3') freq = 200; // Tension / muffled
+        if (scene === 's4') freq = 800; // Rising
+        if (scene === 's5' || scene === 's7') freq = 2200; // Bright / Reveal
+
+        this.filter.frequency.exponentialRampToValueAtTime(freq, now + 2);
+      }
+
+      impact() {
+        if (this.muted) return;
+        const now = this.ctx.currentTime;
+        const o = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(80, now);
+        o.frequency.exponentialRampToValueAtTime(20, now + 1.5);
+        g.gain.setValueAtTime(0.4, now);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + 1.5);
+        o.connect(g);
+        g.connect(this.master);
+        o.start();
+        o.stop(now + 1.5);
+      }
+
+      glitch() {
+        if (this.muted) return;
+        const now = this.ctx.currentTime;
+        // Fast Noise Sweep
+        const o = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        o.type = 'sawtooth';
+        o.frequency.setValueAtTime(1200, now);
+        o.frequency.exponentialRampToValueAtTime(40, now + 0.2);
+        g.gain.setValueAtTime(0.1, now);
+        g.gain.linearRampToValueAtTime(0, now + 0.2);
+        o.connect(g);
+        g.connect(this.master);
+        o.start();
+        o.stop(now + 0.2);
+      }
+
+      ping(freq, vol, dur) {
+        if (this.muted) return;
+        const now = this.ctx.currentTime;
+        const o = this.ctx.createOscillator();
+        const g = this.ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(freq, now);
+        g.gain.setValueAtTime(vol, now);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+        o.connect(g);
+        g.connect(this.master);
+        o.start();
+        o.stop(now + dur);
+      }
+
+      toggleMute() {
+        this.muted = !this.muted;
+        this.master.gain.exponentialRampToValueAtTime(this.muted ? 0.0001 : 0.5, this.ctx.currentTime + 0.1);
+        return this.muted;
+      }
+    }
+
+    let soundEngine = null;
+    const overlay = document.getElementById('start-overlay');
+    const initBtn = document.getElementById('init-btn');
+    const muteBtn = document.getElementById('mute-toggle');
+
+    initBtn.onclick = () => {
+      soundEngine = new SoundEngine();
+      overlay.classList.add('hidden');
+      setTimeout(() => {
+        t0 = performance.now();
+        requestAnimationFrame(tick);
+      }, 500);
+    };
+
+    muteBtn.onclick = () => {
+      if (!soundEngine) return;
+      const isMuted = soundEngine.toggleMute();
+      muteBtn.innerText = `AUDIO: ${isMuted ? 'OFF' : 'ON'}`;
+    };
+
+
+  </script>
+</body>
+
+</html>

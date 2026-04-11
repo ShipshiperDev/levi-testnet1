@@ -15,8 +15,9 @@ contract LeviPresale is Ownable, ReentrancyGuard {
     uint256 public totalSold;
     uint256 public presaleAllocation;
     uint256 public constant MIN_PURCHASE = 1e6;  // 1 USD (6 decimals)
-    uint256 public constant MAX_PURCHASE = 10e6; // 10 USD (6 decimals)
-    uint256 public constant MAX_WALLET_PURCHASE = 10e6; // Maximum cumulative USD a single wallet can spend
+    uint256 public constant MAX_PURCHASE = 100e6; // 100 USD (6 decimals)
+    uint256 public constant MAX_WALLET_PURCHASE = 100e6; // Maximum cumulative USD a single wallet can spend
+    uint256 public presaleStartTime;
     bool public presaleActive;
 
     mapping(address => bool) public acceptedTokens;
@@ -29,7 +30,7 @@ contract LeviPresale is Ownable, ReentrancyGuard {
     constructor(address _leviToken, address[] memory _acceptedTokens, uint256 _tokensPerUsdc) Ownable(msg.sender) {
         leviToken = IERC20(_leviToken);
         tokensPerUsdc = _tokensPerUsdc;
-        presaleAllocation = 500_000_000 * 1e18; // 500M tokens for presale ($25K USD raise @ 20k tokens per $1)
+        presaleAllocation = 50_000_000 * 1e18; // 50M tokens for presale (50% of 100M supply)
         presaleActive = true;
 
         for (uint256 i = 0; i < _acceptedTokens.length; i++) {
@@ -40,6 +41,7 @@ contract LeviPresale is Ownable, ReentrancyGuard {
 
     function buyTokens(address payToken, uint256 usdAmount) external nonReentrant {
         require(presaleActive, "Presale not active");
+        require(block.timestamp >= presaleStartTime, "Presale has not started");
         require(acceptedTokens[payToken], "Token not accepted");
         require(usdAmount >= MIN_PURCHASE, "Below minimum purchase");
         require(usdAmount <= MAX_PURCHASE, "Exceeds max transaction purchase");
@@ -80,5 +82,9 @@ contract LeviPresale is Ownable, ReentrancyGuard {
         uint256 balance = IERC20(token).balanceOf(address(this));
         require(balance > 0, "No balance to withdraw");
         IERC20(token).safeTransfer(owner(), balance);
+    }
+
+    function setPresaleStartTime(uint256 _startTime) external onlyOwner {
+        presaleStartTime = _startTime;
     }
 }

@@ -4,6 +4,7 @@ import { WagmiProvider, createConfig, http } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { defineChain } from 'viem';
 import { NETWORKS } from '@/config/contracts';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 const tempoTestnet = defineChain({
   id: NETWORKS.testnet.chainId,
@@ -33,10 +34,12 @@ const queryClient = new QueryClient();
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
-    </WagmiProvider>
+    <LanguageProvider>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </WagmiProvider>
+    </LanguageProvider>
   );
 }

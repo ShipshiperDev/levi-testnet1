@@ -1,0 +1,1428 @@
+══════════════════════════════════════════════════════════════════════
+  LEVI AI — 30-DAY CONTENT POSTING SCHEDULE
+  Project: LEVI Onchain Research AI | Built on Tempo Network
+══════════════════════════════════════════════════════════════════════
+
+FORMAT KEY:
+  [TWEET]   — Single tweet, max 280 characters
+  [THREAD]  — Multi-tweet thread. Post tweet 1, then reply with each
+               subsequent tweet in order down the same thread
+  [ARTICLE] — Long-form piece. Paste directly into Mirror.xyz or Medium
+
+TONE GUIDE:
+  - lowercase, punchy, minimal
+  - short lines. line breaks do the work
+  - no hype. no filler. every line earns its place
+  - directional → arrows for sequences
+  - aphoristic — each sentence stands alone
+
+BEFORE POSTING:
+  - Replace all [X] placeholders with your confirmed tokenomics figures
+  - Add your site link and socials to article CTAs before publishing
+  - Recommended times: 9am UTC weekdays, 12pm UTC weekends
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+╔══════════════════════════════════════════════════════════════╗
+║  LAUNCH CAMPAIGN — DAYS 1 TO 4                               ║
+║  Focused. Sequential. Every post builds on the last.         ║
+╚══════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 1 — ANNOUNCEMENT DAY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+──────────────────────────────────────────────────────────────────────
+DAY 1 | [TWEET] — Official launch announcement
+──────────────────────────────────────────────────────────────────────
+
+the blockchain never sleeps.
+
+neither does what we built on top of it.
+
+introducing LEVI — the onchain research AI, native to Tempo.
+
+it watches. it reasons. it never stops.
+
+this is the beginning.
+
+#LEVI #Tempo #OnchainAI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 2 — PRODUCT + TOKENOMICS + ARTICLE DAY
+Post the thread first (morning), then the article (afternoon/evening)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+──────────────────────────────────────────────────────────────────────
+DAY 2 | [THREAD] — What LEVI does + Tokenomics + Presale
+Post this in the morning
+──────────────────────────────────────────────────────────────────────
+
+TWEET 1 (post this first, then reply with each numbered tweet below):
+yesterday we announced LEVI.
+
+today we explain exactly what it is.
+how it works. how the token functions.
+how to get in before the presale closes.
+
+everything in one thread. 🧵
+
+---
+
+TWEET 2:
+what is LEVI?
+
+an onchain research AI built natively on Tempo.
+
+it monitors live chain data.
+identifies patterns humans can't track at this scale.
+surfaces intelligence continuously — without being asked.
+
+not a dashboard. not a chatbot.
+
+an intelligence layer.
+
+---
+
+TWEET 3:
+why does that matter?
+
+the blockchain produces more data than any analyst team can process in real time.
+
+1M+ transactions per day on major chains.
+thousands of smart contracts deploying weekly.
+wallet coordination and liquidity shifts happening in silence.
+
+LEVI reads all of it.
+
+---
+
+TWEET 4:
+what LEVI does in practice:
+
+→ wallet profiling — behaviour, patterns, connected addresses
+→ signal detection — unusual accumulation before price reflects it
+→ contract risk analysis — deployer patterns linked to prior failures
+→ liquidity intelligence — coordinated LP movements before exits
+→ on-demand research — chain-sourced answers, no opinions
+
+---
+
+TWEET 5:
+why Tempo?
+
+autonomous agents need three things:
+— millisecond-level speed to process chain events in real time
+— low costs to run continuously at scale
+— architecture that supports agent-to-contract interaction natively
+
+Tempo provides all three.
+
+engineering decision. not a marketing one.
+
+---
+
+TWEET 6:
+now the token.
+
+LEVI token = access to the intelligence layer.
+LEVI token = compute fuel for agent operation.
+LEVI token = governance over the protocol.
+
+three real functions.
+not speculative infrastructure.
+
+---
+
+TWEET 7:
+token supply and allocation:
+
+- total supply: [X] LEVI
+- presale: [X]% — earliest participants, lowest available price
+- ecosystem fund: [X]% — grants, integrations, community incentives
+- team (vested [X] months, [X]-month cliff): [X]%
+- liquidity (locked at launch): [X]%
+- reserve (governance-controlled): [X]%
+
+[REPLACE [X] WITH YOUR CONFIRMED TOKENOMICS]
+
+---
+
+TWEET 8:
+access tiers:
+
+tier 1 — free
+no token required. basic queries. evaluate before committing.
+
+tier 2 — staked
+unlock continuous agent monitoring, real-time signals, wallet profiling, contract risk assessments.
+
+tier 3 — power users
+advanced cluster detection, compound intelligence, governance rights, early module access.
+
+---
+
+TWEET 9:
+the staking model is simple:
+
+stake LEVI → access your tier
+unstake → tier resets
+
+higher stake = more intelligence capacity running for you.
+more agents running = more LEVI flowing as compute fuel.
+
+real usage-driven demand.
+not speculation.
+
+---
+
+TWEET 10:
+the presale is opening soon.
+
+presale participants get:
+— LEVI at the lowest available price
+— priority agent v1 onboarding
+— guaranteed tier 2 access from day one
+— early governance participation
+
+full details on day 3.
+
+turn on notifications. the window is limited. #LEVI #LEVIToken #Tempo #OnchainAI
+
+
+──────────────────────────────────────────────────────────────────────
+DAY 2 | [ARTICLE] — Full company and project overview
+Post this in the afternoon or evening of Day 2
+──────────────────────────────────────────────────────────────────────
+
+TITLE: LEVI — The Onchain Intelligence Layer Built for Tempo
+
+PLATFORM: Mirror.xyz (primary) or Medium
+LENGTH: ~1300 words
+
+- - - - - - - - - - - - - - - - - - BEGIN ARTICLE - - - - - - - - - -
+
+the blockchain is the most complete financial dataset ever created.
+
+every transaction. every wallet interaction. every contract deployment. every liquidity movement — recorded, permanent, publicly accessible.
+
+and almost none of it gets processed meaningfully.
+
+that's the gap. LEVI was built to close it.
+
+---
+
+the problem
+
+the volume problem is real.
+
+Ethereum alone processes over one million transactions per day. thousands of smart contracts deploy weekly. wallet clusters coordinate without visible labels. liquidity patterns precede major events in ways that are detectable in hindsight — but happen too fast and too broadly for manual analysis to catch.
+
+dashboards show what happened.
+alerts fire when a predefined condition is met.
+
+neither layer does the reasoning — the cross-referencing, the historical matching, the behavioural profiling — that turns raw chain data into intelligence.
+
+LEVI is built to do that reasoning. continuously. autonomously.
+
+---
+
+what LEVI is
+
+LEVI is an onchain research AI that monitors the Tempo Network continuously, identifies meaningful patterns in chain data, and surfaces intelligence that participants would otherwise miss or find too late.
+
+the architecture runs in three layers:
+
+observation layer
+continuous monitoring of Tempo chain data — wallet activity, token movements, contract deployments, liquidity flows, cross-wallet correlations.
+
+intelligence layer
+AI-driven pattern recognition and anomaly detection. this is where behavioural signals are extracted, historical patterns matched, and relevant intelligence ranked.
+
+execution layer
+agent actions triggered by the intelligence layer — surfacing insights, routing findings, and in future releases, initiating configured on-chain actions autonomously.
+
+version one focuses on observation and intelligence. full autonomous execution is the next phase.
+
+---
+
+what LEVI covers at launch
+
+wallet profiling
+complete behavioural history of any wallet. transaction patterns, token preferences, timing habits, associated addresses. know what a wallet actually does — before trusting any protocol it touches.
+
+early signal detection
+unusual accumulation, large delegations, contract interactions that historically precede significant market movements. smart money leaves on-chain footprints. LEVI reads them before price catches up.
+
+contract risk analysis
+before capital enters a new protocol, LEVI cross-references its contract against known exploit signatures, anomalous deployer histories, and infrastructure similarities to previous failures. one check can protect a portfolio.
+
+liquidity intelligence
+LP wallet correlation, movement timing, pool health signals. the difference between organic growth and a coordinated exit is usually visible at the chain level. LEVI surfaces it.
+
+on-demand research
+direct queries — token movements, wallet history, protocol health — return chain-sourced answers. every insight traced to source data. no opinions.
+
+---
+
+why Tempo
+
+LEVI operates on Tempo because that's what the agent model requires.
+
+speed: agents processing chain events need near-real-time data. latency at the chain level becomes latency in the intelligence output. Tempo's throughput handles AI-scale monitoring without bottlenecks.
+
+sustainable economics: an agent running continuous queries at high gas costs isn't viable for broad participation. Tempo's fee structure makes continuous LEVI operation possible — for the team and for users.
+
+agent-compatible architecture: LEVI agents detect signals, reason about them, and trigger on-chain actions in sequence. Tempo supports that agent-to-contract interaction model natively.
+
+all three requirements met. building depth on one chain produces a better product than shallow multi-chain coverage. that's the decision.
+
+---
+
+the LEVI token
+
+the token is the access and governance layer for the protocol.
+
+running an intelligence layer at scale has real costs. compute, monitoring infrastructure, agent execution, ongoing development. the token model distributes those costs — and the corresponding access — through the community.
+
+access
+staking LEVI unlocks intelligence tiers. higher stake = more agent capacity and deeper capabilities.
+
+agent fuel
+when LEVI agents run tasks, they consume compute. staked tokens pre-allocate that capacity. more stake = more agent throughput working for you.
+
+governance
+token holders vote on which modules get built, protocol parameters, ecosystem fund deployment, and integration decisions. governance opens once distribution is broad enough that no single party controls outcomes.
+
+---
+
+the presale
+
+opening shortly. earliest community access, lowest available price.
+
+presale participants receive:
+— LEVI at floor price
+— priority onboarding when agent v1 ships
+— guaranteed tier 2 access from launch day
+— early governance participation
+
+full details announced separately. follow all LEVI channels.
+
+---
+
+what we're building toward
+
+the onchain economy with mature intelligence infrastructure is more transparent, more accessible, and fairer than the one that exists today.
+
+the edge in onchain markets shifts from who accesses data first to who has the best intelligence processing it. agents handle the volume. humans focus on contextual judgement agents can't replicate.
+
+coordinated patterns that currently go undetected become visible. the whole ecosystem gets sharper.
+
+LEVI is building that infrastructure for Tempo. incrementally. seriously. with a product designed to be genuinely useful.
+
+this is the beginning.
+
+[Add your website link and social handles here before publishing]
+
+- - - - - - - - - - - - - - - - - -  END ARTICLE - - - - - - - - - -
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 3 — PRESALE DAY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+──────────────────────────────────────────────────────────────────────
+DAY 3 | [TWEET] — Presale is live announcement
+──────────────────────────────────────────────────────────────────────
+
+the LEVI presale is live.
+
+lowest price. ever.
+
+what you get:
+— LEVI token at floor price
+— priority agent v1 onboarding
+— tier 2 access guaranteed from day one
+— early governance participation
+
+[INSERT PRESALE LINK HERE]
+
+window is limited. #LEVIToken #Tempo #LEVI
+
+
+──────────────────────────────────────────────────────────────────────
+DAY 3 | [TWEET] — Presale reminder / push (post a few hours later)
+──────────────────────────────────────────────────────────────────────
+
+if you missed yesterday's thread:
+
+LEVI is the onchain research AI built on Tempo.
+the token is how you access the intelligence layer, fund agent compute, and govern the protocol.
+
+presale is the lowest price available. full stop.
+
+[INSERT PRESALE LINK HERE]
+
+#LEVIToken #LEVI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 4 — PRESALE PUSH + Q&A FOR COMMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+──────────────────────────────────────────────────────────────────────
+DAY 4 | [TWEET] — Small marketing push (morning)
+──────────────────────────────────────────────────────────────────────
+
+if you missed the presale announcement:
+
+LEVI is the onchain intelligence layer for Tempo.
+real-time wallet analysis. autonomous agents. contract risk detection.
+
+the presale is the lowest token price, ever. priority access before launch.
+
+still open — [INSERT PRESALE LINK]
+
+#LEVI #LEVIToken
+
+
+──────────────────────────────────────────────────────────────────────
+DAY 4 | [TWEET] — Small marketing push (midday)
+──────────────────────────────────────────────────────────────────────
+
+most people are refreshing dashboards.
+
+the signals they actually need fired hours ago —
+in on-chain data they're not set up to read.
+
+LEVI reads it.
+continuously.
+autonomously.
+
+presale live: [INSERT LINK]
+
+#LEVI #OnchainAI #Tempo
+
+
+──────────────────────────────────────────────────────────────────────
+DAY 4 | [THREAD] — Q&A for comment sections
+Use these to reply directly when people ask questions under your posts
+──────────────────────────────────────────────────────────────────────
+
+Q: "Is LEVI just a chatbot?"
+
+A:
+no.
+
+LEVI agents run continuously without being prompted.
+a chatbot waits for a question.
+an agent watches without being asked.
+
+you can query LEVI directly — but the core capability is intelligence that operates whether you're paying attention or not.
+
+---
+
+Q: "Do I need the LEVI token to use it?"
+
+A:
+not for everything.
+
+free tier — open to all. basic queries, limited features.
+staked tier — unlock continuous agent monitoring, real-time signals, contract risk analysis, governance rights.
+
+the token unlocks the depth.
+the depth is where LEVI actually lives.
+
+---
+
+Q: "Why only Tempo? Why not Ethereum or other big chains?"
+
+A:
+deliberate decision.
+
+autonomous agents need low latency. sustainable economics. architecture that supports agent-to-contract interaction natively.
+
+Tempo provides all three.
+
+building depth on one chain produces a better product than shallow coverage across many. cross-chain is on the roadmap. but we build the foundation right first.
+
+---
+
+Q: "What does the LEVI token actually do — is it just governance?"
+
+A:
+three functions:
+
+1. access — stake to unlock intelligence tiers
+2. agent fuel — staked tokens cover the compute cost of agent operation. more stake = more agent capacity running for you
+3. governance — token holders vote on which modules get built, protocol parameters, fund allocation
+
+it's the access key, the fuel, and the governance mechanism.
+not just symbolic voting rights.
+
+---
+
+Q: "Is the team doxxed? Who is building LEVI?"
+
+A:
+more team information will be shared as we approach the public launch.
+
+what we can say: backgrounds in AI infrastructure and on-chain systems. building with a security audit ahead of full public release.
+
+---
+
+Q: "When is the presale closing?"
+
+A:
+the window is time-limited. exact close announced in advance — fair notice for all participants.
+
+follow @LEVI_AI and turn on notifications.
+
+---
+
+Q: "Wen token listing?"
+
+A:
+token listing details announced after the presale closes.
+
+liquidity is locked at launch. more on the listing process in the presale announcement.
+
+---
+
+Q: "How is this different from other AI + crypto projects?"
+
+A:
+three specific differences:
+
+1. input data: LEVI reads raw on-chain behaviour — wallet patterns, contract events, liquidity flows. not price data.
+
+2. operation model: LEVI agents are autonomous. monitoring runs without being prompted. most AI crypto tools are passive and reactive.
+
+3. integration depth: LEVI is built natively on Tempo. the agent model, token design, and execution layer were all engineered around Tempo's architecture. not deployed on top of it.
+
+---
+
+Q: "Is there a whitepaper?"
+
+A:
+full technical documentation is in progress. published before the public launch.
+
+the thread from day 2 covers the product, token model, and access tiers in full.
+[Link to your Day 2 thread here]
+
+
+╔══════════════════════════════════════════════════════════════╗
+║  REGULAR SCHEDULE — DAYS 5 TO 30                             ║
+║  Presale push is done. Now build authority and community.    ║
+╚══════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 5 | [TWEET] — Relatable pain point
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+four dashboards open.
+three DEX scanners running.
+two CT feeds refreshing.
+
+2am. and the signal you needed fired six hours ago.
+
+LEVI runs while you don't.
+
+that's the point. #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 6 | [TWEET] — Positioning vs competition
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+most "AI + crypto" projects are price prediction tools with a whitepaper.
+
+LEVI reads raw on-chain behaviour — wallet patterns, contract events, liquidity coordination.
+
+not market data. chain data.
+
+price is the last signal.
+LEVI reads what causes price to move, before it moves.
+
+#LEVI #OnchainAI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 7 | [THREAD] — What onchain intelligence actually means
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWEET 1:
+the blockchain is the most complete intelligence dataset ever created.
+
+most people treat it like a list of transactions.
+
+that's the gap LEVI was built to close.
+
+what onchain intelligence actually means. 🧵
+
+---
+
+TWEET 2:
+every on-chain transaction carries more information than the obvious.
+
+a whale moves $10M at 3am.
+a developer wallet drains slowly over seven days.
+liquidity gets pulled two hours before the price collapses.
+
+the signal exists.
+reading it at scale requires infrastructure humans don't have alone.
+
+---
+
+TWEET 3:
+onchain intelligence is not dashboards or TVL numbers.
+
+it's the ability to extract meaning from raw chain data in real time:
+
+→ wallet behaviour and intent
+→ smart contract patterns
+→ liquidity flow analysis
+→ coordinated movement detection
+
+fundamentally different category of data.
+
+---
+
+TWEET 4:
+the volume problem is real.
+
+1M+ transactions per day.
+thousands of smart contracts deploying weekly.
+billions of micro-signals that don't appear in any alert until it's too late.
+
+no analyst team keeps up with that.
+
+LEVI does.
+
+---
+
+TWEET 5:
+LEVI is an intelligence layer.
+
+not a dashboard. not a bot. not a passive scanner.
+
+it monitors, reasons, and flags — continuously.
+built on Tempo for the speed, cost structure, and architecture autonomous agents actually require.
+
+this is what's being built. #LEVI #OnchainAI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 8 | [TWEET] — Hook / curiosity
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+what if an AI monitored every wallet movement on Tempo and surfaced what smart money was doing —
+before it showed up in a price chart?
+
+that's not a concept.
+
+that's LEVI. #LEVI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 9 | [THREAD] — Why LEVI is built on Tempo
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWEET 1:
+we chose Tempo as LEVI's native chain.
+
+here's the full reasoning — no fluff. 🧵
+
+---
+
+TWEET 2:
+autonomous agents need millisecond-level speed.
+
+an intelligence layer that processes a chain event two seconds late is already behind.
+
+Tempo's throughput handles AI-scale monitoring without bottlenecks.
+
+that's requirement one.
+
+---
+
+TWEET 3:
+they also need sustainable operating costs.
+
+an agent running continuous queries at high gas rates isn't viable at scale.
+
+Tempo's fee structure makes it possible to run LEVI continuously — without prohibitive cost on either side.
+
+requirement two.
+
+---
+
+TWEET 4:
+and they need programmable infrastructure.
+
+LEVI agents detect a signal → reason about it → trigger an on-chain action.
+all in sequence.
+
+Tempo supports that agent-to-contract model natively.
+
+requirement three.
+
+---
+
+TWEET 5:
+speed. cost. architecture.
+
+all three met.
+
+building depth on one chain produces a better product than shallow coverage across many.
+cross-chain monitoring is on the roadmap.
+
+but we build the foundation right first.
+
+#LEVI #Tempo #OnchainAI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 10 | [TWEET] — Scale stat
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+500,000+ new wallet addresses created across major chains. every single day.
+
+each one is a data point.
+a potential signal.
+a pattern waiting to be read.
+
+most monitoring tools see a fraction of that.
+
+LEVI is built to see all of it. #OnchainAI #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 11 | [THREAD] — LEVI use cases in detail
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWEET 1:
+what does LEVI actually do in practice?
+
+five use cases. 🧵
+
+---
+
+TWEET 2:
+use case 1 — wallet profiling
+
+LEVI builds a complete behavioural picture of any wallet:
+— full transaction timeline and timing habits
+— token preferences and movement patterns
+— connected wallet relationships
+
+know what a wallet actually does before trusting any protocol it's involved in.
+
+---
+
+TWEET 3:
+use case 2 — early signal detection
+LEVI monitors for unusual accumulation, large delegations, and contract interactions.
+it also tracks social signals on X — identifying trending narratives and influencer clusters before they hit the mainstream.
+
+smart money leaves footprints. LEVI reads them on-chain and off-chain.
+
+---
+
+TWEET 4:
+use case 3 — narrative tracking
+LEVI maps what's actually working on the Tempo network.
+tokens. NFTs. liquidity patterns.
+it identifies the core narratives driving the ecosystem in real time.
+
+know what is happening — and why it is happening.
+
+---
+
+TWEET 5:
+use case 4 — contract risk analysis
+
+before entering any new protocol, LEVI cross-references its contract against:
+— known exploit and rug signatures
+— anomalous deployer histories
+— infrastructure similarities to past failures
+
+one check can protect a portfolio.
+
+---
+
+TWEET 6:
+use case 5 — liquidity intelligence
+
+LEVI tracks LP wallet correlations and movement timing.
+
+organic liquidity growth and a coordinated exit look different at the chain level.
+
+LEVI surfaces that difference — before it appears in price.
+
+---
+
+TWEET 7:
+use case 6 — on-demand research
+
+direct queries to LEVI — token activity, wallet history, protocol health — return chain-sourced answers.
+
+not opinions. not aggregated takes.
+
+intelligence traced to its source data.
+
+---
+
+TWEET 8:
+these are the launch capabilities.
+
+upcoming: cross-chain monitoring, wallet cluster detection, autonomous risk alerts, protocol health scoring.
+
+the intelligence layer grows as the community grows. #LEVI #OnchainAI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 12 | [TWEET] — Community engagement question
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+if LEVI had an agent running for you right now —
+
+what would you point it at first?
+
+whale wallets. new contracts. liquidity health. something else entirely.
+
+drop it below. we read every response. #LEVI #Web3
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 13 | [ARTICLE] — Agents vs dashboards (educational)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TITLE: From Dashboards to Agents: Why Onchain Research Is Changing
+
+PLATFORM: Mirror.xyz or Medium
+LENGTH: ~1000 words
+
+- - - - - - - - - - - - - - - - - - BEGIN ARTICLE - - - - - - - - - -
+
+there's a pattern in how technology changes industries.
+
+first the tools improve. then the paradigm changes.
+
+crypto research is at the second stage.
+
+---
+
+the three stages of onchain research
+
+stage 1 — explorers
+raw blockchain data. completely unprocessed. everything on-chain was visible in principle. making sense of it was entirely manual.
+
+stage 2 — dashboards and alerts
+aggregated, filtered, displayed. alert conditions set in advance. a significant improvement — but still fundamentally passive. interpretation stays with the human.
+
+stage 3 — intelligent agents
+software that monitors continuously, identifies patterns across large data sets simultaneously, and flags what matters — without manual input. the reasoning moves into the system.
+
+most of the industry operates at stage two.
+
+LEVI is building stage three.
+
+---
+
+what makes an agent different
+
+the key distinction is reactive vs autonomous.
+
+a reactive system responds when a predefined condition is met.
+an autonomous agent watches for things that are becoming significant — across a wide and continuous data stream — and surfaces them before a specific condition is crossed.
+
+for onchain research, this means:
+— monitoring wallet behaviour across an entire chain, not just flagged addresses
+— researching X in real time to identify influencer clusters and trending narratives
+— identifying coordinated movements that no single alert would catch
+— cross-referencing contract patterns in real time as new contracts deploy
+— surfacing signals before they appear in price — which is when most participants notice
+
+the difference is coverage and continuity.
+agents don't have blind spots created by unconfigured alerts.
+
+---
+
+why this matters specifically in DeFi
+
+DeFi operates at machine speed.
+
+MEV bots. liquidation engines. flash loans. all algorithmic.
+
+manual research has always had a latency disadvantage in this environment. what agents change is the quality of intelligence underpinning decisions — not execution speed, but the depth and breadth of information available before a decision is made.
+
+a bot executes on predefined logic.
+an intelligence agent reasons about context and surfaces findings that predefined logic wouldn't catch.
+
+those are complementary approaches, not competing ones.
+
+---
+
+the LEVI architecture
+
+LEVI is designed around three layers:
+
+observation — continuous monitoring of Tempo Network data: wallet activity, contract events, liquidity flows.
+
+intelligence — AI pattern recognition and anomaly detection. behavioural signals extracted. historical patterns matched. relevant intelligence ranked.
+
+execution — agent actions triggered by the intelligence layer: surfacing insights, routing findings, and in future releases, initiating on-chain actions based on configured parameters.
+
+version one focuses on observation and intelligence.
+the execution layer — full autonomous on-chain action — comes next.
+
+---
+
+the LEVI implementation on Tempo
+
+LEVI operates on Tempo because the agent model requires specific infrastructure:
+— low latency for near-real-time chain data
+— sustainable economics for continuous operation
+— programmable architecture for agent-to-contract interaction
+
+all three present on Tempo. engineering decision, not a positioning one.
+
+---
+
+the shift that's coming
+
+as intelligence layers become standard infrastructure, the edge in onchain markets moves from data access to interpretation quality.
+
+agents handle volume — monitoring at scale, continuously.
+humans focus on contextual judgements agents can't replicate.
+
+the participants building familiarity with intelligence infrastructure now have a window that doesn't tend to stay open long.
+
+LEVI is building that infrastructure for Tempo. starting now.
+
+[Add your website link and social handles here before publishing]
+
+- - - - - - - - - - - - - - - - - -  END ARTICLE - - - - - - - - - -
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 14 | [TWEET] — Conviction statement
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+in three years, manually researching onchain activity the way most people do today will look like the manual process it replaced.
+
+intelligence layers are the next infrastructure primitive.
+
+LEVI is building it on Tempo.
+
+and it's already running. #LEVI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 15 | [THREAD] — The Loop: Autonomous Economic Agents
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWEET 1:
+the loop:
+
+launch → earn → reinvest → scale
+
+it operates.
+
+LEVI is the agent.
+MPP + x402 is the logic.
+
+a thread on the self-sustaining intelligence economy. 🧵
+
+---
+
+TWEET 2:
+most agents are expensive pets.
+
+you feed them prompts. they perform. you pay for the infrastructure.
+the loop is broken because the human is the bottleneck.
+
+LEVI closes the loop.
+
+---
+
+TWEET 3:
+Tempo is the rail.
+MPP + x402 allows LEVI to pay for its own resources.
+
+computes. APIs. signal feeds.
+machine-to-machine commerce without a human in the middle.
+
+---
+
+TWEET 4:
+MPP handles the sessions — high-frequency intelligence streaming.
+x402 handles the stateless logic — per-request precision.
+
+LEVI uses both to stay autonomous.
+
+---
+
+TWEET 5:
+the cycle:
+
+→ agent detects a high-conviction signal
+→ pays for deep research via MPP sessions
+→ generates actionable intelligence
+→ intelligence generates value
+→ value reinvested into more agent compute
+
+---
+
+TWEET 6:
+this isn't a chatbot with a wallet.
+this is a self-funding infrastructure layer.
+
+it earns. it reinvests. it scales.
+entirely onchain.
+
+the loop is the moat. and LEVI is running it on Tempo.
+
+#LEVI #Tempo #MPP #x402
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 16 | [TWEET] — Feature teaser
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+in development: a LEVI module that identifies wallet clusters.
+
+groups of wallets coordinating on-chain with no visible connection between them.
+
+the patterns it's already surfacing are significant.
+
+more detail coming soon. #LEVI #OnchainIntelligence
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 17 | [TWEET] — Weekend / big picture
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+the participants who outperform in the next cycle won't necessarily have more information.
+
+they'll have better infrastructure processing it for them.
+
+LEVI is that infrastructure for Tempo.
+
+it operates. #LEVI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 18 | [TWEET] — Token utility restatement
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+the LEVI token:
+
+→ access — stake to unlock intelligence tiers
+→ agent fuel — covers compute cost of autonomous agent operation
+→ governance — on-chain voting over protocol direction
+
+usage drives demand.
+demand doesn't exist without usage.
+
+that's the honest model. #LEVIToken #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 19 | [THREAD] — The Research Powerhouse in Action
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWEET 1:
+3:47am UTC.
+
+the market is quiet. the powerhouse is running.
+
+here is how LEVI maps narratives across X and Tempo autonomously. 🧵
+
+---
+
+TWEET 2:
+LEVI identifies a sudden spike in social volume on X around a new Tempo NFT standard.
+
+it cross-references the influencer cluster driving the conversation.
+it initiates an x402 payment to acquire deep historical data on the key wallets involved.
+
+narrative confirmed.
+
+---
+
+TWEET 3:
+simultaneously, LEVI scans the chain for contract deployments matching the narrative.
+
+it finds two new protocols.
+it opens an MPP session to run pattern matching against their codebases and liquidity setups.
+
+logic checked. risk assessed.
+
+---
+
+TWEET 4:
+output generated for Tier 2/3 users:
+"narrative: [new standard] expansion. signal: confirmed accumulation by top 5 influencer cluster. risk: low."
+
+LEVI reinvests its earnings into a dedicated monitoring thread for this narrative.
+
+the loop continues.
+
+---
+
+TWEET 5:
+8:00am.
+
+human analysts wake up to a full report on the next trend.
+they didn't have to scan X. they didn't have to audit the chain.
+
+the powerhouse already did it.
+
+---
+
+TWEET 6:
+this is the machine economy.
+X intelligence + Tempo execution.
+
+launch → earn → reinvest → scale.
+the loop operates.
+
+#LEVI #Tempo #SocialAlpha #NarrativeTracking
+
+
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 20 | [TWEET] — Community acknowledgement
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+the early LEVI community is exactly who this is built for.
+
+people who've felt the research problem firsthand.
+people who don't need convincing that the intelligence layer is the answer.
+
+you're early. more is coming. #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 21 | [TWEET] — Roadmap update
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+where LEVI stands:
+
+— core intelligence layer: live
+— LEVI token on Tempo: deployed
+— presale: complete
+— agent v1: in development
+— cross-chain module: roadmap
+— governance: post healthy token distribution
+
+building consistently.
+timelines published when confirmed. #LEVI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 22 | [THREAD] — What makes LEVI different
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TWEET 1:
+there are a lot of AI and crypto projects.
+
+here's specifically what makes LEVI different. 🧵
+
+---
+
+TWEET 2:
+different input data.
+
+most crypto AI products wrap price data in a language model and call it intelligence.
+
+LEVI reads raw chain data — wallet behaviour, contract patterns, liquidity flows, timing correlations.
+
+price is the last signal.
+LEVI reads what causes price to move, before it moves.
+
+---
+
+TWEET 3:
+different operation model.
+
+most AI tools are passive — ask a question, receive an answer.
+
+LEVI agents are autonomous — monitoring runs continuously. flagging happens without prompting.
+
+passive tools inform.
+autonomous agents watch.
+
+---
+
+TWEET 4:
+different infrastructure approach.
+
+LEVI is natively built on Tempo — not deployed across six chains to appear ambitious.
+
+the agent model, token design, and execution layer were engineered around what Tempo's architecture actually supports.
+
+depth on one chain produces a better product.
+
+---
+
+TWEET 5:
+different token utility.
+
+LEVI token: access key. agent compute fuel. governance mechanism.
+
+if LEVI usage grows, token demand grows with it.
+if the product fails to deliver, the token reflects that.
+
+that alignment is the right structure for a protocol designed to last. #LEVI #Tempo
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 23 | [TWEET] — Tempo ecosystem shoutout
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+if you're building or investing in the Tempo ecosystem —
+
+LEVI is the intelligence layer it's been missing.
+
+real-time chain analysis. autonomous agents. native Tempo integration from day one.
+
+an ecosystem is stronger with intelligence infrastructure at its core. #Tempo #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 24 | [ARTICLE] — The future of onchain intelligence
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TITLE: What the Onchain Economy Looks Like When Intelligence Is Standard Infrastructure
+
+PLATFORM: Mirror.xyz or Medium
+LENGTH: ~850 words
+
+- - - - - - - - - - - - - - - - - - BEGIN ARTICLE - - - - - - - - - -
+
+a frame for understanding what's being built now and why it matters.
+
+in the onchain economy five years from now, intelligence layers are standard infrastructure. every serious participant has agents monitoring on their behalf. the edge no longer comes from accessing data first. it comes from having superior intelligence processing it.
+
+the participants building familiarity with that infrastructure today have a window that doesn't tend to stay open long.
+
+---
+
+the missing layer
+
+the current technology stack of the onchain economy:
+
+layer 1 — blockchain execution: where transactions happen and state is recorded.
+layer 2 — protocols and smart contracts: financial logic that runs on execution.
+layer 3 — user tools: dashboards, explorers, alert systems.
+
+layer 3 has received the most product development. better interfaces, better aggregation, better filtering.
+
+what's absent is what should sit between layer 3 and the user — an intelligence layer that doesn't just display data, but reasons about it continuously, without prompting.
+
+LEVI is one of the projects closing that gap. on Tempo. starting now.
+
+---
+
+what changes when intelligence is everywhere
+
+the edge moves from access to interpretation.
+right now, better data tools provide a meaningful edge. as intelligence layers become standard, raw data access matters less. interpretation quality becomes the primary differentiator.
+
+human judgement moves up the value chain.
+volume tasks move to agents — monitoring thousands of wallets, cross-referencing contract patterns, tracking liquidity correlation. contextual judgements remain human — evaluating protocol culture, assessing team credibility, reading macro environment.
+
+coordination patterns become harder to hide.
+behaviours that currently go undetected — wallet cluster coordination, quiet accumulation before announcements, X narrative manipulation, and developer activity ahead of exploits — become increasingly visible as intelligence infrastructure matures. transparency extends beyond open-source code to behavioural patterns across the whole chain and social layer.
+
+---
+
+the specialisation layer
+
+the intelligence infrastructure of the onchain economy will not be one general-purpose AI.
+
+different chains have different data structures. different protocols have different risk surfaces. different users need different intelligence prioritised.
+
+LEVI is the Tempo-native research powerhouse — deeply integrated with Tempo's infrastructure and the social layer, optimised for the specific capabilities of that network.
+
+depth on one chain produces reliability.
+that's a better foundation than shallow breadth.
+
+---
+
+why decentralisation matters here
+
+there's a version of this future worth paying attention to: centralised companies controlling the intelligence layer sitting on top of decentralised infrastructure.
+
+if the intelligence layer is owned by one entity — with its own opacity and its own interests — it undermines the premise of the ecosystem beneath it.
+
+verifiable, community-governed intelligence matters for the same reasons the blockchain itself matters.
+trustless systems are more reliable than trusted ones, especially when money is involved.
+
+LEVI is designed as a community-governed protocol. the intelligence layer over the chain should be as transparent and trustless as the chain itself.
+
+---
+
+where LEVI is positioned
+
+building the Tempo-native intelligence layer — with the architecture and values that make it worth trusting over the long term.
+
+the goal: most useful and reliable intelligence infrastructure for participants in the Tempo ecosystem.
+
+if that's achieved, the token model, the governance, and the community all follow naturally.
+
+the onchain economy with mature intelligence infrastructure is more transparent, more accessible, and fairer than the one that exists today.
+
+that's worth building toward.
+
+[Add your website link and social handles here before publishing]
+
+- - - - - - - - - - - - - - - - - -  END ARTICLE - - - - - - - - - -
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 25 | [TWEET] — Simple value prop
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LEVI reads the blockchain so you don't have to.
+
+real-time intelligence.
+autonomous agents.
+built on Tempo.
+
+that's the product.
+that's the mission. #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 26 | [TWEET] — Engagement
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+what's the biggest research problem you actually deal with in onchain markets?
+
+keeping up with wallet activity.
+missing liquidity signals before they matter.
+not knowing which new protocols to trust.
+
+tell us. we build what the community needs. #LEVI #Web3
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 27 | [TWEET] — Vision
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+the onchain economy with mature intelligence infrastructure is more transparent, more accessible, and fairer than the one that exists today.
+
+that's what LEVI is building toward on Tempo.
+
+and we're nowhere near done. #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 28 | [TWEET] — Token reminder
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+how the LEVI token works:
+
+stake → unlock your intelligence tier
+higher stake → more agent capacity working for you
+token holders → govern the protocol's direction
+
+usage-driven demand.
+not speculation.
+
+#LEVIToken #Tempo #LEVI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 29 | [TWEET] — Governance teaser
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LEVI governance is coming.
+
+token holders vote on which intelligence modules get built.
+how the ecosystem fund gets deployed.
+where the protocol goes next.
+
+the community shapes what the intelligence layer becomes.
+
+more details when distribution reaches the right threshold. #LEVI #LEVIToken
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY 30 | [TWEET] — Month close
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+30 days.
+
+— intelligence layer: live
+— LEVI token: deployed on Tempo
+— presale: done
+— agent v1: in development
+
+the blockchain doesn't sleep.
+neither does LEVI.
+
+nowhere near done. #LEVI #Tempo #OnchainAI
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SCHEDULE OVERVIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LAUNCH CAMPAIGN (Days 1-4):
+  Day 1   — Announcement tweet
+  Day 2   — Product + tokenomics thread (AM) + full company article (PM)
+  Day 3   — Presale live tweet + presale reminder tweet (a few hrs later)
+  Day 4   — Two marketing push tweets + full Q&A bank for comments
+
+REGULAR SCHEDULE (Days 5-30):
+  Day 5   — Pain point tweet
+  Day 6   — Positioning tweet
+  Day 7   — Onchain intelligence thread
+  Day 8   — Hook tweet
+  Day 9   — Why Tempo thread
+  Day 10  — Scale stat tweet
+  Day 11  — Use cases thread
+  Day 12  — Engagement question tweet
+  Day 13  — Agents vs dashboards article
+  Day 14  — Conviction tweet
+  Day 15  — The Loop (launch/earn/reinvest/scale) thread
+  Day 16  — Feature teaser tweet
+  Day 17  — Weekend vision tweet
+  Day 18  — Token utility tweet
+  Day 19  — The Loop in Action thread
+  Day 20  — Community tweet
+  Day 21  — Roadmap update tweet
+  Day 22  — What makes LEVI different thread
+  Day 23  — Tempo ecosystem tweet
+  Day 24  — Future of intelligence article
+  Day 25  — Simple value prop tweet
+  Day 26  — Engagement tweet
+  Day 27  — Vision tweet
+  Day 28  — Token reminder tweet
+  Day 29  — Governance teaser tweet
+  Day 30  — Month close tweet
+
+TOTAL:
+  Tweets:   19 standalone
+  Threads:   8 (approx 55 individual tweets)
+  Articles:  3 (fully written, paste and publish)
+  Q&A bank:  8 answers ready to copy-paste into comments
+
+CONSISTENT HASHTAGS:
+  #LEVI  #LEVIToken  #Tempo  #OnchainAI  #OnchainIntelligence
+
+PLATFORMS:
+  Tweets + threads — X (Twitter)
+  Articles — Mirror.xyz (primary), Medium (secondary)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  LEVI — intelligence that never sleeps.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Noto+Serif+JP:wght@400;700;900&display=swap');
 
 /* ═══════════════════════════════════════════════════
    DESIGN TOKENS
@@ -67,6 +67,14 @@ body::before {
    TYPOGRAPHY
 ═══════════════════════════════════════════════════ */
 .jetbrains { font-family: 'JetBrains Mono', monospace; }
+.noto { font-family: 'Noto Serif JP', serif; }
+
+.lang-ja {
+  font-family: 'Noto Serif JP', serif;
+}
+.lang-ja .jetbrains {
+  font-family: 'JetBrains Mono', monospace; /* Keep and mix for tech feel */
+}
 
 .text-gradient {
   background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
@@ -428,6 +436,10 @@ body::before {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+@keyframes unroll {
+  from { max-height: 0; opacity: 0; transform: scaleY(0.9); transform-origin: top; }
+  to { max-height: 1000px; opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
 
 .animate-fade-in         { animation: fadeInUp 0.9s ease forwards; opacity: 0; }
 .animate-fade-in.delay-1 { animation-delay: 0.15s; }
@@ -637,7 +649,8 @@ body::before {
 }
 
 @media (max-width: 480px) {
-  .grid-4 { grid-template-columns: 1fr 1fr; }
+  .grid-4 { grid-template-columns: 1fr; }
+  .network-badge-btn { font-size: 0.65rem !important; }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -772,5 +785,153 @@ body::before {
   footer .container > div:first-child {
     grid-template-columns: 1fr !important;
     gap: 32px !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   JAPANESE AESTHETICS (SHIORI, HANKO, KINTSUGI)
+   Minimalist, premium, and meaningful animations.
+═══════════════════════════════════════════════════ */
+
+/* Shiori (Bookmark) — Minimalist vertical tab */
+.shiori-container {
+  position: fixed;
+  right: 0;
+  top: 25%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.shiori {
+  background: var(--bg-dark);
+  border: 1px solid var(--glass-border);
+  border-right: none;
+  writing-mode: vertical-rl;
+  padding: 24px 8px;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  color: var(--text-secondary);
+  border-radius: 4px 0 0 4px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+  opacity: 0.6;
+}
+.shiori:hover {
+  opacity: 1;
+  color: var(--accent-primary);
+  background: var(--glass-bg-hover);
+  padding-right: 12px;
+  transform: translateX(-4px);
+}
+.shiori.active {
+  opacity: 1;
+  color: var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+  padding-right: 12px;
+}
+
+/* Hanko (Stamp) — Traditional seal animation */
+.hanko-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2000;
+}
+.hanko-stamp {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  animation: hankoIn 0.8s cubic-bezier(0.13, 0.99, 0.23, 1) forwards,
+             hankoOut 0.5s ease 2.5s forwards;
+  opacity: 0;
+}
+.hanko-border {
+  width: 100%;
+  height: 100%;
+  border: 6px solid #b91c1c; /* Traditional vermillion */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  position: relative;
+  background: rgba(185, 28, 28, 0.05);
+}
+.hanko-text {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  color: #b91c1c;
+  line-height: 1;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.1);
+}
+/* Distressed ink texture effect */
+.hanko-stamp::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.4' /%3E%3C/svg%3E");
+  mix-blend-mode: color-burn;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes hankoIn {
+  0% { transform: scale(3) rotate(-15deg); opacity: 0; filter: blur(10px); }
+  60% { transform: scale(1) rotate(0); opacity: 1; filter: blur(0); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; filter: blur(0); }
+}
+@keyframes hankoOut {
+  to { opacity: 0; transform: scale(0.9) translateY(10px); filter: blur(5px); }
+}
+
+/* Kintsugi (Gold Repair) — Subtle shimmer overlay */
+.kintsugi-vessel {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1500;
+  opacity: 0;
+  animation: kintsugiAppear 3s ease forwards;
+}
+.kintsugi-crack {
+  fill: none;
+  stroke: #d4af37; /* Gold */
+  stroke-width: 0.5;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: kintsugiDraw 2.5s ease-out forwards;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.6));
+}
+
+@keyframes kintsugiAppear {
+  0% { opacity: 0; }
+  20% { opacity: 0.4; }
+  80% { opacity: 0.4; }
+  100% { opacity: 0; }
+}
+@keyframes kintsugiDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ═══════════════════════════════════════════════════
+   RESPONSIVE ADJUSTMENTS
+═══════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .shiori-container {
+    top: auto;
+    bottom: 100px;
+    right: 0;
+  }
+  .shiori {
+    padding: 16px 6px;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
   }
 }

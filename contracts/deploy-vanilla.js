@@ -30,7 +30,7 @@ async function main() {
     "0x20c0000000000000000000000000000000000000", // pathUSD
     "0x20c0000000000000000000000000000000000001"  // AlphaUSD
   ];
-  const rate = 20000;
+  const rate = 2000;
 
   console.log("Deploying LeviPresale...");
   let presale;
@@ -44,25 +44,29 @@ async function main() {
   const presaleAddress = await presale.getAddress();
   console.log("✅ LeviPresale deployed to:", presaleAddress);
 
-  // 3. Fund Presale
+  // 3. Fund Presale & Reserves
   const tokenContract = new ethers.Contract(tokenAddress, tokenJson.abi, wallet);
   const decimals = 10n ** 18n;
 
-  console.log("Minting 500,000,000 LEVI to Presale Contract (50%)...");
-  const presaleAmt = 500_000_000n * decimals;
+  console.log("Minting 50,000,000 LEVI to Presale Contract (50%)...");
+  const presaleAmt = 50_000_000n * decimals;
   const tx1 = await tokenContract.mint(presaleAddress, presaleAmt);
   await tx1.wait();
   
-  console.log("Minting 300,000,000 LEVI to Dev Wallet (30% for LP)...");
-  const lpAmt = 300_000_000n * decimals;
+  console.log("Minting 30,000,000 LEVI to Dev Wallet (30% for LP)...");
+  const lpAmt = 30_000_000n * decimals;
   const tx2 = await tokenContract.mint(wallet.address, lpAmt);
   await tx2.wait();
 
-  console.log("Minting 200,000,000 LEVI to Dead Wallet (20% Burned)...");
-  const burnAmt = 200_000_000n * decimals;
-  const deadAddress = "0x000000000000000000000000000000000000dEaD";
-  const tx3 = await tokenContract.mint(deadAddress, burnAmt);
+  console.log("Minting 10,000,000 LEVI to Dev Wallet (10% Ecosystem Growth)...");
+  const ecoAmt = 10_000_000n * decimals;
+  const tx3 = await tokenContract.mint(wallet.address, ecoAmt);
   await tx3.wait();
+
+  console.log("Minting 10,000,000 LEVI to Dev Wallet (10% Staking & Rewards)...");
+  const stakingAmt = 10_000_000n * decimals;
+  const tx4 = await tokenContract.mint(wallet.address, stakingAmt);
+  await tx4.wait();
   
   console.log("✅ Tokens fully minted and distributed!");
   console.log("✅ Presale fully funded!");
