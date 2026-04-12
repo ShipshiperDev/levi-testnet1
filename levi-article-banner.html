@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEVI — Article Banner</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --blue: #2563ff;
+      --cyan: #00d4ff;
+      --bg: #03040a;
+      --white: #e8eeff;
+    }
+
+    /* ── PAGE: centers the banner on screen ── */
+    body {
+      background: #010206;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ── BANNER CARD 1200×630 ── */
+    .banner {
+      position: relative;
+      width: 1200px;
+      height: 630px;
+      background: var(--bg);
+      overflow: hidden;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 4px;
+      box-shadow: 0 0 80px rgba(0, 212, 255, 0.08), 0 0 200px rgba(37, 99, 255, 0.05);
+    }
+
+    /* ── BG CANVAS ── */
+    #banner-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    /* ── SCAN LINES ── */
+    .scanlines {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg,
+          rgba(0, 0, 0, 0.035) 0px,
+          rgba(0, 0, 0, 0.035) 1px,
+          transparent 1px,
+          transparent 3px);
+    }
+
+    /* ── VIGNETTE ── */
+    .vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
+    }
+
+    /* ── LEFT ACCENT BAR ── */
+    .accent-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, transparent, var(--cyan), var(--blue), transparent);
+      z-index: 5;
+    }
+
+    /* ── TOP STATUS ROW ── */
+    .top-row {
+      position: absolute;
+      top: 32px;
+      left: 44px;
+      right: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      animation: fadeSlideDown 0.8s 0.2s both;
+    }
+
+    .system-id {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: rgba(0, 212, 255, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px var(--cyan);
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.15
+      }
+    }
+
+    .top-right {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(232, 238, 255, 0.22);
+    }
+
+    /* ── BOTTOM STATUS BAR ── */
+    .bottom-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 44px;
+      border-top: 1px solid rgba(0, 212, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 44px;
+      z-index: 10;
+      background: rgba(3, 4, 10, 0.6);
+      backdrop-filter: blur(8px);
+      animation: fadeSlideUp 0.8s 1.8s both;
+    }
+
+    .bottom-left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .stat-item {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: rgba(0, 212, 255, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-item span {
+      color: rgba(232, 238, 255, 0.55);
+    }
+
+    .bottom-right {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: rgba(0, 212, 255, 0.35);
+    }
+
+    /* ── MAIN CONTENT ── */
+    .content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 72px;
+      padding-bottom: 44px;
+      z-index: 10;
+    }
+
+    /* ── EYEBROW ── */
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 6px;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      animation: fadeSlideDown 0.7s 0.5s both;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--cyan);
+      opacity: 0.6;
+    }
+
+    /* ── HEADLINE ── */
+    .headline {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      animation: fadeSlideUp 0.9s 0.7s both;
+    }
+
+    .headline .line1 {
+      display: block;
+      background: linear-gradient(135deg, #ffffff 40%, rgba(232, 238, 255, 0.85));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .headline .line2 {
+      display: block;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── BODY ── */
+    .body-text {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(232, 238, 255, 0.48);
+      line-height: 1.7;
+      max-width: 560px;
+      margin-bottom: 36px;
+      animation: fadeSlideUp 0.9s 1.0s both;
+    }
+
+    /* ── MODULE TAGS ── */
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      animation: fadeSlideUp 0.8s 1.3s both;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      padding: 6px 14px;
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 2px;
+      color: rgba(0, 212, 255, 0.7);
+      background: rgba(0, 212, 255, 0.04);
+      text-transform: uppercase;
+    }
+
+    /* ── RIGHT SIDE VISUAL ── */
+    .right-visual {
+      position: absolute;
+      right: 52px;
+      top: 50%;
+      transform: translateY(-50%) translateY(-22px);
+      z-index: 8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeScaleIn 1s 0.6s both;
+    }
+
+    /* ── LOGO RING SYSTEM ── */
+    .ring-system {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      animation: ringPulse 3.5s infinite;
+    }
+
+    .ring:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      border-color: rgba(0, 212, 255, 0.35);
+    }
+
+    .ring:nth-child(2) {
+      width: 148px;
+      height: 148px;
+      animation-delay: 0.7s;
+      border-color: rgba(37, 99, 255, 0.22);
+    }
+
+    .ring:nth-child(3) {
+      width: 200px;
+      height: 200px;
+      animation-delay: 1.4s;
+      border-color: rgba(0, 212, 255, 0.1);
+    }
+
+    @keyframes ringPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 0.3;
+      }
+    }
+
+    .logo-center {
+      position: relative;
+      z-index: 2;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.35), 0 0 80px rgba(37, 99, 255, 0.15);
+    }
+
+    .logo-fallback {
+      position: relative;
+      z-index: 2;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 2px solid rgba(0, 212, 255, 0.4);
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.35), 0 0 80px rgba(37, 99, 255, 0.15);
+      background: radial-gradient(circle at 35% 35%, rgba(0, 212, 255, 0.3), rgba(37, 99, 255, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cyan);
+      letter-spacing: 2px;
+    }
+
+    /* ── TOKEN LABEL UNDER RING ── */
+    .token-label {
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .token-name {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 8px;
+      background: linear-gradient(135deg, #fff, var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .token-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: rgba(0, 212, 255, 0.45);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
+    /* ── DIVIDER LINE ── */
+    .divider {
+      position: absolute;
+      left: 680px;
+      top: 80px;
+      bottom: 60px;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(0, 212, 255, 0.12), rgba(37, 99, 255, 0.1), transparent);
+      z-index: 6;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeScaleIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50%) translateY(-22px) scale(0.88);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(-50%) translateY(-22px) scale(1);
+      }
+    }
+
+    /* ── CORNER MARKS ── */
+    .corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      z-index: 12;
+      border-color: rgba(0, 212, 255, 0.3);
+      border-style: solid;
+    }
+
+    .corner.tl {
+      top: 0;
+      left: 0;
+      border-width: 1px 0 0 1px;
+    }
+
+    .corner.tr {
+      top: 0;
+      right: 0;
+      border-width: 1px 1px 0 0;
+    }
+
+    .corner.bl {
+      bottom: 0;
+      left: 0;
+      border-width: 0 0 1px 1px;
+    }
+
+    .corner.br {
+      bottom: 0;
+      right: 0;
+      border-width: 0 1px 1px 0;
+    }
+
+    /* ── GLOWING GRID LINE ── */
+    .h-grid {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0, 212, 255, 0.06) 20%, rgba(0, 212, 255, 0.06) 80%, transparent);
+      z-index: 3;
+    }
+
+    .h-grid.mid {
+      top: 50%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="banner">
+
+    <!-- Background canvas -->
+    <canvas id="banner-canvas"></canvas>
+
+    <!-- Overlays -->
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="accent-bar"></div>
+    <div class="h-grid mid"></div>
+
+    <!-- Corner marks -->
+    <div class="corner tl"></div>
+    <div class="corner tr"></div>
+    <div class="corner bl"></div>
+    <div class="corner br"></div>
+
+    <!-- Vertical divider -->
+    <div class="divider"></div>
+
+    <!-- Top row -->
+    <div class="top-row">
+      <div class="system-id">
+        <div class="status-dot"></div>
+        LEVI · ACI [SPEC_V1.3] · TEMPO NETWORK
+      </div>
+      <div class="top-right">COGNITION LAYER · ONLINE</div>
+    </div>
+
+    <!-- Main content: LEFT -->
+    <div class="content">
+      <div class="eyebrow">The Architecture & Manifesto</div>
+      <div class="headline">
+        <span class="line1">The Intelligence</span>
+        <span class="line2">Layer. Explained.</span>
+      </div>
+      <div class="body-text">
+        Why every chain needs a native reasoning layer — and how LEVI builds it on Tempo. X Research, Influencer
+        Mapping, Custom KOL Tracking, and autonomous cognition in one stack.
+      </div>
+      <div class="tags">
+        <div class="tag">X Research Engine</div>
+        <div class="tag">Influencer Mapping</div>
+        <div class="tag">Custom KOL Tracking</div>
+        <div class="tag">Cognition Loop</div>
+      </div>
+    </div>
+
+    <!-- Right visual -->
+    <div class="right-visual">
+      <div class="ring-system">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <img class="logo-center" src="new logo.png" alt="LEVI"
+          onerror="this.style.display='none'; document.getElementById('logo-fb').style.display='flex';" />
+        <div class="logo-fallback" id="logo-fb" style="display:none;">L</div>
+      </div>
+      <div class="token-label">
+        <div class="token-name">LEVI</div>
+        <div class="token-sub">Onchain Intelligence · Tempo</div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="bottom-bar">
+      <div class="bottom-left">
+        <div class="stat-item">SUPPLY <span>100M FIXED</span></div>
+        <div class="stat-item">FDV <span>$50,000</span></div>
+        <div class="stat-item">NETWORK <span>TEMPO</span></div>
+        <div class="stat-item">STATUS <span>PRESALE LIVE</span></div>
+      </div>
+      <div class="bottom-right">X: @LEVI_AI</div>
+    </div>
+
+  </div>
+
+  <script>
+    /* ── PARTICLE MESH BACKGROUND ── */
+    const cv = document.getElementById('banner-canvas');
+    const ctx = cv.getContext('2d');
+    const W = cv.width = 1200;
+    const H = cv.height = 630;
+
+    const pts = Array.from({ length: 90 }, () => ({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.4 + 0.3,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      a: Math.random() * Math.PI * 2
+    }));
+
+    // Matrix rain setup (subtle, right side)
+    const cols = Math.floor(W / 32);
+    const drops = Array.from({ length: cols }, () => Math.random() * -H);
+    const CHARS = 'アイウエオカキクケコ0123456789ABCDEF←→↑↓◆';
+    let frame = 0;
+
+    function draw() {
+      // Gradient background
+      const grad = ctx.createRadialGradient(W * 0.35, H * 0.5, 0, W * 0.35, H * 0.5, W * 0.7);
+      grad.addColorStop(0, 'rgba(8,16,48,1)');
+      grad.addColorStop(1, 'rgba(3,4,10,1)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Subtle matrix rain (right third only)
+      ctx.font = '13px Space Mono, monospace';
+      for (let i = Math.floor(cols * 0.65); i < cols; i++) {
+        const alpha = 0.07 + 0.04 * Math.sin(frame * 0.02 + i);
+        ctx.fillStyle = `rgba(0,212,255,${alpha})`;
+        ctx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * 32, drops[i]);
+        if (drops[i] > H && Math.random() > 0.97) drops[i] = 0;
+        drops[i] += 22;
+      }
+
+      // Glow orb (center-left)
+      const orb = ctx.createRadialGradient(300, 315, 0, 300, 315, 320);
+      orb.addColorStop(0, 'rgba(37,99,255,0.07)');
+      orb.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = orb;
+      ctx.fillRect(0, 0, W, H);
+
+      // Particles
+      pts.forEach(p => {
+        const alpha = 0.25 + 0.35 * Math.sin(frame * 0.012 + p.a);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,212,255,${alpha})`;
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+      });
+
+      // Connection lines
+      for (let i = 0; i < pts.length; i++) {
+        for (let j = i + 1; j < pts.length; j++) {
+          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 110) {
+            ctx.beginPath();
+            ctx.moveTo(pts[i].x, pts[i].y);
+            ctx.lineTo(pts[j].x, pts[j].y);
+            ctx.strokeStyle = `rgba(0,212,255,${0.07 * (1 - d / 110)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Subtle horizontal data lines
+      [120, 245, 390, 510].forEach((y, i) => {
+        const alpha = 0.04 + 0.02 * Math.sin(frame * 0.015 + i);
+        ctx.beginPath();
+        ctx.moveTo(44, y); ctx.lineTo(640, y);
+        ctx.strokeStyle = `rgba(0,212,255,${alpha})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      });
+
+      frame++;
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+  </script>
+</body>
+
+</html>
